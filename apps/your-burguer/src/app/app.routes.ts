@@ -62,6 +62,13 @@ export const appRoutes: Route[] = [
             './_pages/choice-assistant/steps/garnish/garnish-step.component'
           ).then((c) => c.GarnishStepComponent),
       },
+      {
+        path: 'mode',
+        loadComponent: () =>
+          import(
+            './_pages/choice-assistant/steps/mode/mode-step.component'
+          ).then((c) => c.ModeStepComponent),
+      },
     ],
   },
 ];
