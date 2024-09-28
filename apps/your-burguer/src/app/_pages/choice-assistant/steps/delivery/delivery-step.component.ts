@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DELIVERY_CHOICE_CONFIG } from './adapter';
 import {
   SimpleChoice,
@@ -11,7 +10,7 @@ import { Delivery } from '@choice-assistant/domain/preference/delivery/delivery'
 @Component({
   selector: 'app-delivery-step',
   standalone: true,
-  imports: [CommonModule, SimpleChoicePickerComponent],
+  imports: [SimpleChoicePickerComponent],
   templateUrl: './delivery-step.component.html',
   styleUrl: './delivery-step.component.css',
 })
