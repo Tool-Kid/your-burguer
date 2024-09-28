@@ -1,0 +1,19 @@
+<main class="min-h-screen flex flex-col justify-between">
+  <section class="flex-grow">
+    <router-outlet />
+    <pre> {{ customerPreferencesState.snapshot | json }} </pre>
+  </section>
+
+  <footer class="sticky bottom-0">
+    <div class="justify-between">
+      <button (click)="navigator.previous()" [hidden]="!navigator.hasPrevious()"
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded float-left">
+        Prev
+      </button>
+      <button (click)="navigator.next()" [hidden]="!navigator.hasNext()"
+        class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded float-right">
+        Next
+      </button>
+    </div>
+  </footer>
+</main>
