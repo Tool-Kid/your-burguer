@@ -34,6 +34,13 @@ export const appRoutes: Route[] = [
             './_pages/choice-assistant/steps/pricing/pricing-step.component'
           ).then((c) => c.PricingStepComponent),
       },
+      {
+        path: 'site-type',
+        loadComponent: () =>
+          import(
+            './_pages/choice-assistant/steps/site-type/site-type-step.component'
+          ).then((c) => c.SiteTypeStepComponent),
+      },
     ],
   },
 ];
