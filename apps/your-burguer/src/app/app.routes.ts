@@ -41,6 +41,13 @@ export const appRoutes: Route[] = [
             './_pages/choice-assistant/steps/site-type/site-type-step.component'
           ).then((c) => c.SiteTypeStepComponent),
       },
+      {
+        path: 'intolerances',
+        loadComponent: () =>
+          import(
+            './_pages/choice-assistant/steps/intolerances/intolerances-step.component'
+          ).then((c) => c.IntolerancesStepComponent),
+      },
     ],
   },
 ];
