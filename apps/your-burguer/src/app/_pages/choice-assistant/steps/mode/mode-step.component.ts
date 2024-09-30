@@ -20,8 +20,6 @@ export class ModeStepComponent {
   config = MODE_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      mode: choice.value as Mode,
-    });
+    this.customerPreferencesState.toggleMode(choice.value as Mode);
   }
 }

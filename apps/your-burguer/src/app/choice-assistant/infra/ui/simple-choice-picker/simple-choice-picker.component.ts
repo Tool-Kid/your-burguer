@@ -1,4 +1,4 @@
-import { Component, input, model, output } from '@angular/core';
+import { Component, input, output, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -25,15 +25,21 @@ export class SimpleChoicePickerComponent {
   config = input.required<SimpleChoiceConfig>();
   choiceChanged = output<SimpleChoice>();
 
-  choicePicked = model<SimpleChoice>();
+  choicesPicked = model<Set<SimpleChoice>>(new Set());
 
   pickChoice(choice: SimpleChoice) {
-    this.choicePicked.set(choice);
+    this.choicesPicked.update((choices) => {
+      if (choices.has(choice)) {
+        choices.delete(choice);
+        return choices;
+      }
+      return choices?.add(choice);
+    });
     this.choiceChanged.emit(choice);
   }
 
   isPicked(choice: SimpleChoice) {
-    return choice.value === this.choicePicked()?.value;
+    return this.choicesPicked()?.has(choice);
   }
 
   selected = false;

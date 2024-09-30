@@ -20,8 +20,6 @@ export class DeliveryStepComponent {
   config = DELIVERY_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      delivery: choice.value as Delivery,
-    });
+    this.customerPreferencesState.toggleDelivery(choice.value as Delivery);
   }
 }

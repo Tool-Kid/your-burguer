@@ -20,8 +20,6 @@ export class HighlightsStepComponent {
   config = HIGHLIGHTS_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      highlights: choice.value as Highlights,
-    });
+    this.customerPreferencesState.toggleHighlights(choice.value as Highlights);
   }
 }

@@ -1,23 +1,23 @@
-<div class="border p-4 rounded-lg">
-  <h2 class="text-xl font-semibold mb-4">{{title()}}</h2>
-  <div class="grid grid-cols-2 gap-4 text-center content-stretch">
+<section class="section">
+  <h2 class="title">{{title()}}</h2>
+  <div class="grid-container">
     @for (choice of config().choices; track $index) {
     <div aria-hidden="true"
-      class="relative flex flex-col items-center justify-center bg-gray-200 rounded-lg cursor-pointer transition-all duration-200 p-8"
-      (click)="pickChoice(choice)" [class.selected]="isPicked(choice)" [class.bg-blue-500]="isPicked(choice)"
-      [class.text-white]="isPicked(choice)" [class.bg-gray-200]="!isPicked(choice)">
+      class="choice-item"
+      (click)="pickChoice(choice)"
+      [class.selected]="isPicked(choice)"
+      [class.bg-purple-500]="isPicked(choice)"
+      [class.text-white]="isPicked(choice)"
+      [class.bg-gray-200]="!isPicked(choice)">
 
-      <img [src]="choice.icon" alt="" class="w-12 h-12 mb-2" width="50px" height="50px">
+      <img [src]="choice.icon" alt="" class="icon" width="50px" height="50px">
 
       @if (isPicked(choice)) {
-      <div class="absolute top-0 right-0 px-2 py-1 m-2 text-white bg-green-500 rounded-full">
-        ✓
-      </div>
+      <div class="checkmark"> ✓ </div>
       }
 
-      <!-- Texto -->
-      <span class="text-sm font-medium">{{choice.displayText}}</span>
+      <span class="choice-text">{{choice.displayText}}</span>
     </div>
     }
   </div>
-</div>
+</section>

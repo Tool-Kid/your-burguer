@@ -20,8 +20,6 @@ export class GarnishStepComponent {
   config = GARNISH_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      garnish: choice.value as Garnish,
-    });
+    this.customerPreferencesState.toggleGarnish(choice.value as Garnish);
   }
 }

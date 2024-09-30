@@ -19,8 +19,6 @@ export class SiteTypeStepComponent {
   config = SITE_TYPE_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      siteType: choice.value as SiteType,
-    });
+    this.customerPreferencesState.toggleSiteType(choice.value as SiteType);
   }
 }

@@ -19,8 +19,8 @@ export class BurguerTypeStepComponent {
   config = BURGUER_TYPE_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      burguerType: choice.value as BurguerType,
-    });
+    this.customerPreferencesState.toggleBurguerType(
+      choice.value as BurguerType
+    );
   }
 }

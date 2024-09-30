@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   SimpleChoice,
   SimpleChoicePickerComponent,
@@ -21,8 +20,8 @@ export class IntolerancesStepComponent {
   config = INTOLERANCES_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      intolerances: choice.value as Intolerances,
-    });
+    this.customerPreferencesState.toggleIntolerances(
+      choice.value as Intolerances
+    );
   }
 }

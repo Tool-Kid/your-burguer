@@ -20,8 +20,6 @@ export class PricingStepComponent {
   config = PRICING_CHOICE_CONFIG;
 
   onChoiceChanged(choice: SimpleChoice) {
-    this.customerPreferencesState.patch({
-      pricing: choice.value as Pricing,
-    });
+    this.customerPreferencesState.togglePricing(choice.value as Pricing);
   }
 }
