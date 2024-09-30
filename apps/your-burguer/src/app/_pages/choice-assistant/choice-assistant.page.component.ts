@@ -3,12 +3,11 @@ import { SimpleChoicePickerComponent } from '@choice-assistant/infra/ui/simple-c
 import { RouterModule } from '@angular/router';
 import { WorkflowNavigator } from '@workflow/domain/workflow-navigator';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-choice-assistant-page',
   standalone: true,
-  imports: [RouterModule, SimpleChoicePickerComponent, JsonPipe],
+  imports: [RouterModule, SimpleChoicePickerComponent],
   templateUrl: './choice-assistant.page.component.html',
   styleUrl: './choice-assistant.page.component.css',
 })

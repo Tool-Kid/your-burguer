@@ -19,6 +19,10 @@ export class DeliveryStepComponent {
 
   config = DELIVERY_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.delivery;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleDelivery(choice.value as Delivery);
   }

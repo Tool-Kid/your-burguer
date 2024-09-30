@@ -19,6 +19,10 @@ export class GarnishStepComponent {
 
   config = GARNISH_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.garnish;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleGarnish(choice.value as Garnish);
   }

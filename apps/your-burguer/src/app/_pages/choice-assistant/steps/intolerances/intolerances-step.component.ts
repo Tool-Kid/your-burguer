@@ -19,6 +19,10 @@ export class IntolerancesStepComponent {
 
   config = INTOLERANCES_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.intolerances;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleIntolerances(
       choice.value as Intolerances

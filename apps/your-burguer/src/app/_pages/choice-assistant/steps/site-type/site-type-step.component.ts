@@ -18,6 +18,10 @@ export class SiteTypeStepComponent {
   private readonly customerPreferencesState = inject(CustomerPreferencesState);
   config = SITE_TYPE_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.siteType;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleSiteType(choice.value as SiteType);
   }

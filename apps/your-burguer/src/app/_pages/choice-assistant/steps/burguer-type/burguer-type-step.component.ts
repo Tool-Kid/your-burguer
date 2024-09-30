@@ -18,6 +18,10 @@ export class BurguerTypeStepComponent {
   private readonly customerPreferencesState = inject(CustomerPreferencesState);
   config = BURGUER_TYPE_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.burguerType;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleBurguerType(
       choice.value as BurguerType

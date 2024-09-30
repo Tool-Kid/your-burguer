@@ -19,6 +19,10 @@ export class HighlightsStepComponent {
 
   config = HIGHLIGHTS_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.highlights;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleHighlights(choice.value as Highlights);
   }

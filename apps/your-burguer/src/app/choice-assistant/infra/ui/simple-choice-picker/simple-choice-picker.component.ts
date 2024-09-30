@@ -1,4 +1,4 @@
-import { Component, input, output, model } from '@angular/core';
+import { Component, input, output, model, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -20,14 +20,29 @@ export interface SimpleChoice {
   templateUrl: './simple-choice-picker.component.html',
   styleUrl: './simple-choice-picker.component.css',
 })
-export class SimpleChoicePickerComponent {
+export class SimpleChoicePickerComponent implements OnInit {
   title = input.required<string>();
   config = input.required<SimpleChoiceConfig>();
+  value = input.required<string[]>();
   choiceChanged = output<SimpleChoice>();
 
   choicesPicked = model<Set<SimpleChoice>>(new Set());
 
+  ngOnInit(): void {
+    for (const choice of this.value()) {
+      const simpleChoice = this.config().choices.find(
+        (c) => c.value === choice
+      )!;
+      this.toggleChoice(simpleChoice);
+    }
+  }
+
   pickChoice(choice: SimpleChoice) {
+    this.toggleChoice(choice);
+    this.choiceChanged.emit(choice);
+  }
+
+  private toggleChoice(choice: SimpleChoice) {
     this.choicesPicked.update((choices) => {
       if (choices.has(choice)) {
         choices.delete(choice);
@@ -35,16 +50,9 @@ export class SimpleChoicePickerComponent {
       }
       return choices?.add(choice);
     });
-    this.choiceChanged.emit(choice);
   }
 
   isPicked(choice: SimpleChoice) {
     return this.choicesPicked()?.has(choice);
-  }
-
-  selected = false;
-
-  toggleSelection() {
-    this.selected = !this.selected;
   }
 }

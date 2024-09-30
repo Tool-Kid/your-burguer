@@ -19,6 +19,10 @@ export class ModeStepComponent {
 
   config = MODE_CHOICE_CONFIG;
 
+  get value() {
+    return this.customerPreferencesState.snapshot.mode;
+  }
+
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.toggleMode(choice.value as Mode);
   }

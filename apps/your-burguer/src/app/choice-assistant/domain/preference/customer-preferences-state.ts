@@ -8,14 +8,14 @@ import { Pricing } from './pricing/pricing';
 import { SiteType } from './site-type/site-type';
 
 export interface CustomerPreferencesProps {
-  burguerType?: BurguerType[];
-  delivery?: Delivery[];
-  pricing?: Pricing[];
-  siteType?: SiteType[];
-  intolerances?: Intolerances[];
-  highlights?: Highlights[];
-  garnish?: Garnish[];
-  mode?: Mode[];
+  burguerType: BurguerType[];
+  delivery: Delivery[];
+  pricing: Pricing[];
+  siteType: SiteType[];
+  intolerances: Intolerances[];
+  highlights: Highlights[];
+  garnish: Garnish[];
+  mode: Mode[];
   location?: {
     street?: string;
     latitude?: number;

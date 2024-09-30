@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import {
   SimpleChoice,
@@ -18,6 +17,10 @@ import { PRICING_CHOICE_CONFIG } from './adapter';
 export class PricingStepComponent {
   private readonly customerPreferencesState = inject(CustomerPreferencesState);
   config = PRICING_CHOICE_CONFIG;
+
+  get value() {
+    return this.customerPreferencesState.snapshot.pricing;
+  }
 
   onChoiceChanged(choice: SimpleChoice) {
     this.customerPreferencesState.togglePricing(choice.value as Pricing);
