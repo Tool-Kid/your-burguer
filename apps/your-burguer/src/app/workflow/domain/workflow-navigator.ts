@@ -1,17 +1,8 @@
 import { Workflow } from './workflow';
 import { WorkflowState } from './workflow.state';
-import { DEFAULT_WORKFLOW } from './workflows/default';
 
 export abstract class WorkflowNavigator {
-  protected state: WorkflowState = new WorkflowState({
-    workflow: DEFAULT_WORKFLOW,
-    current: {
-      step: DEFAULT_WORKFLOW.steps[0],
-      index: 0,
-      hasNext: true,
-      hasPrevious: false,
-    },
-  });
+  protected state: WorkflowState = new WorkflowState();
 
   public setWorkflow(workflow: Workflow): void {
     this.state.setState({
@@ -36,4 +27,6 @@ export abstract class WorkflowNavigator {
   public hasPrevious(): boolean {
     return this.state.hasPrevious();
   }
+
+  public abstract navigateToCurrent(): void;
 }

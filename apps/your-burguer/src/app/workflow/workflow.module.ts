@@ -1,7 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { WorkflowNavigator } from './domain/workflow-navigator';
 import { NgWorkflowNavigator } from './infra/ng-workflow-navigator';
-import { DEFAULT_WORKFLOW } from './domain/workflows/default';
 
 @NgModule({})
 export class WorkflowModule {
@@ -13,7 +12,7 @@ export class WorkflowModule {
           provide: WorkflowNavigator,
           useFactory: () => {
             const navigator = new NgWorkflowNavigator();
-            navigator.setWorkflow(DEFAULT_WORKFLOW);
+            navigator.navigateToCurrent();
             return navigator;
           },
         },

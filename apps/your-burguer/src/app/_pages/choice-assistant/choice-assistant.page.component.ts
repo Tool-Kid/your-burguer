@@ -14,4 +14,8 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 export class ChoiceAssistantPageComponent {
   public navigator = inject(WorkflowNavigator);
   public customerPreferencesState = inject(CustomerPreferencesState);
+
+  isFinalStep() {
+    return !this.navigator.hasNext();
+  }
 }

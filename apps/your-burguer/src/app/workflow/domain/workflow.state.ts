@@ -1,5 +1,7 @@
+import { RxjsState } from '../../core/state/infra/rxjs-state';
 import { Step } from './step/step';
 import { Workflow } from './workflow';
+import { DEFAULT_WORKFLOW } from './workflows/default';
 
 interface WorkflowStateProps {
   workflow: Workflow;
@@ -11,40 +13,34 @@ interface WorkflowStateProps {
   };
 }
 
-export class WorkflowState {
-  private _state: WorkflowStateProps;
+const DEFAULT_WORKFLOW_STATE_PROPS: WorkflowStateProps = {
+  workflow: DEFAULT_WORKFLOW,
+  current: {
+    step: DEFAULT_WORKFLOW.steps[0],
+    index: 0,
+    hasNext: true,
+    hasPrevious: false,
+  },
+};
 
-  get state(): WorkflowStateProps {
-    return this._state;
+export class WorkflowState extends RxjsState<WorkflowStateProps> {
+  constructor() {
+    super('your-burguer___workflow', DEFAULT_WORKFLOW_STATE_PROPS);
   }
 
-  constructor(state: WorkflowStateProps) {
-    this._state = state;
-  }
-
-  setState(state: Partial<WorkflowStateProps>) {
+  setState(state: WorkflowStateProps) {
     this.patch(state);
-  }
-
-  patch(state: Partial<WorkflowStateProps>) {
-    this._state = {
-      ...this._state,
-      ...state,
-      current: {
-        ...this._state.current,
-        ...state.current,
-      },
-    };
   }
 
   next(): void {
     if (this.hasNext()) {
-      const nextIndex = this._state.current.index + 1;
+      const nextIndex = this.snapshot.current.index + 1;
       this.patch({
+        ...this.snapshot,
         current: {
-          step: this._state.workflow.steps[nextIndex],
+          step: this.snapshot.workflow.steps[nextIndex],
           index: nextIndex,
-          hasNext: nextIndex < this._state.workflow.steps.length - 1,
+          hasNext: nextIndex < this.snapshot.workflow.steps.length - 1,
           hasPrevious: nextIndex > 0,
         },
       });
@@ -52,17 +48,20 @@ export class WorkflowState {
   }
 
   hasNext(): boolean {
-    return this._state.current.index < this._state.workflow.steps.length - 1;
+    return (
+      this.snapshot.current.index < this.snapshot.workflow.steps.length - 1
+    );
   }
 
   previous(): void {
     if (this.hasPrevious()) {
-      const prevIndex = this._state.current.index - 1;
+      const prevIndex = this.snapshot.current.index - 1;
       this.patch({
+        ...this.snapshot,
         current: {
-          step: this._state.workflow.steps[prevIndex],
+          step: this.snapshot.workflow.steps[prevIndex],
           index: prevIndex,
-          hasNext: prevIndex < this._state.workflow.steps.length - 1,
+          hasNext: prevIndex < this.snapshot.workflow.steps.length - 1,
           hasPrevious: prevIndex > 0,
         },
       });
@@ -70,6 +69,6 @@ export class WorkflowState {
   }
 
   hasPrevious(): boolean {
-    return this._state.current.index > 0;
+    return this.snapshot.current.index > 0;
   }
 }

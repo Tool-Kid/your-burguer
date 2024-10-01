@@ -10,7 +10,7 @@ export class NgWorkflowNavigator extends WorkflowNavigator {
       throw new Error(`Current workflow has no next step`);
     }
     this.state.next();
-    const { path } = this.state.state.current.step;
+    const { path } = this.state.snapshot.current.step;
     this.router.navigate([path]);
   }
 
@@ -19,7 +19,12 @@ export class NgWorkflowNavigator extends WorkflowNavigator {
       throw new Error(`Current workflow has no previous step`);
     }
     this.state.previous();
-    const { path } = this.state.state.current.step;
+    const { path } = this.state.snapshot.current.step;
+    this.router.navigate([path]);
+  }
+
+  public override navigateToCurrent(): void {
+    const { path } = this.state.snapshot.current.step;
     this.router.navigate([path]);
   }
 }

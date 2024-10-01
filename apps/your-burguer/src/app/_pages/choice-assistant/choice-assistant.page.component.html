@@ -5,14 +5,31 @@
 
   <footer class="sticky bottom-0">
     <div class="justify-between">
-      <button (click)="navigator.previous()" [hidden]="!navigator.hasPrevious()"
-        class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 m-4 float-left">
+      @if (isFinalStep()) {
+        <button
+        (click)="navigator.previous()"
+        [hidden]="!navigator.hasPrevious()"
+        class="prev-button"
+      >
         Prev
       </button>
-      <button (click)="navigator.next()" [hidden]="!navigator.hasNext()"
-        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg px-5 py-2.5 text-center m-4 float-right">
+      <button class="next-button final-step">✨ Go!</button>
+      } @else {
+      <button
+        (click)="navigator.previous()"
+        [hidden]="!navigator.hasPrevious()"
+        class="prev-button"
+      >
+        Prev
+      </button>
+      <button
+        (click)="navigator.next()"
+        [hidden]="!navigator.hasNext()"
+        class="next-button"
+      >
         Next
       </button>
+      }
     </div>
   </footer>
 </main>

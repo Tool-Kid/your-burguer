@@ -6,7 +6,12 @@ export class ChoiceAssistantModule {
   static forRoot(): ModuleWithProviders<ChoiceAssistantModule> {
     return {
       ngModule: ChoiceAssistantModule,
-      providers: [CustomerPreferencesState],
+      providers: [
+        {
+          provide: CustomerPreferencesState,
+          useValue: new CustomerPreferencesState(),
+        },
+      ],
     };
   }
 }

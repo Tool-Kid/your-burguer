@@ -6,6 +6,7 @@ import { Intolerances } from './intolerances/intolerances';
 import { Mode } from './mode/mode';
 import { Pricing } from './pricing/pricing';
 import { SiteType } from './site-type/site-type';
+import { RxjsState } from '../../../core/state/infra/rxjs-state';
 
 export interface CustomerPreferencesProps {
   burguerType: BurguerType[];
@@ -36,22 +37,13 @@ const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferencesProps = {
   mode: [],
 };
 
-export class CustomerPreferencesState {
-  private state: CustomerPreferencesProps = DEFAULT_CUSTOMER_PREFERENCES;
-
-  get snapshot() {
-    return this.state;
-  }
-
-  patch(preferences: Partial<CustomerPreferencesProps>) {
-    this.state = {
-      ...this.state,
-      ...preferences,
-    };
+export class CustomerPreferencesState extends RxjsState<CustomerPreferencesProps> {
+  constructor() {
+    super('your-burguer___customer-preferences', DEFAULT_CUSTOMER_PREFERENCES);
   }
 
   private toggleItem<T>(key: keyof CustomerPreferencesProps, item: T) {
-    const array = (this.state[key] as T[]) || [];
+    const array = (this.snapshot[key] as T[]) || [];
     const set = new Set(array);
 
     if (set.has(item)) {
@@ -60,10 +52,10 @@ export class CustomerPreferencesState {
       set.add(item);
     }
 
-    this.state = {
-      ...this.state,
+    this.patch({
+      ...this.snapshot,
       [key]: Array.from(set),
-    };
+    });
   }
 
   toggleBurguerType(burguerType: BurguerType) {
