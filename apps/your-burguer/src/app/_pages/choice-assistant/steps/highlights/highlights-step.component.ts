@@ -3,14 +3,14 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 import { Highlights } from '@choice-assistant/domain/preference/highlights/highlights';
 import {
   SimpleChoice,
-  SimpleChoicePickerComponent,
-} from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+  MultiChoicePickerComponent,
+} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { HIGHLIGHTS_CHOICE_CONFIG } from './adapter';
 
 @Component({
   selector: 'app-highlights-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [MultiChoicePickerComponent],
   templateUrl: './highlights-step.component.html',
   styleUrl: './highlights-step.component.css',
 })

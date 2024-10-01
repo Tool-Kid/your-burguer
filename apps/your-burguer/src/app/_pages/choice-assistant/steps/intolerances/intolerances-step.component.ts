@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import {
   SimpleChoice,
-  SimpleChoicePickerComponent,
-} from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+  MultiChoicePickerComponent,
+} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { Intolerances } from '@choice-assistant/domain/preference/intolerances/intolerances';
 import { INTOLERANCES_CHOICE_CONFIG } from './adapter';
@@ -10,7 +10,7 @@ import { INTOLERANCES_CHOICE_CONFIG } from './adapter';
 @Component({
   selector: 'app-intolerances-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [MultiChoicePickerComponent],
   templateUrl: './intolerances-step.component.html',
   styleUrl: './intolerances-step.component.css',
 })

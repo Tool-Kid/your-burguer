@@ -2,15 +2,15 @@ import { Component, inject } from '@angular/core';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import {
   SimpleChoice,
-  SimpleChoicePickerComponent,
-} from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+  MultiChoicePickerComponent,
+} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { Garnish } from '@choice-assistant/domain/preference/garnish/garnish';
 import { GARNISH_CHOICE_CONFIG } from './adapter';
 
 @Component({
   selector: 'app-garnish-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [MultiChoicePickerComponent],
   templateUrl: './garnish-step.component.html',
   styleUrl: './garnish-step.component.css',
 })

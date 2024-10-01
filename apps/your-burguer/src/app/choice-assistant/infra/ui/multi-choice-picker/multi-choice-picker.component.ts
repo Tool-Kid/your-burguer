@@ -14,13 +14,13 @@ export interface SimpleChoice {
 }
 
 @Component({
-  selector: 'app-simple-choice-picker',
+  selector: 'app-multi-choice-picker',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './simple-choice-picker.component.html',
-  styleUrl: './simple-choice-picker.component.css',
+  templateUrl: './multi-choice-picker.component.html',
+  styleUrl: './multi-choice-picker.component.css',
 })
-export class SimpleChoicePickerComponent implements OnInit {
+export class MultiChoicePickerComponent implements OnInit {
   title = input.required<string>();
   config = input.required<SimpleChoiceConfig>();
   value = input.required<string[]>();

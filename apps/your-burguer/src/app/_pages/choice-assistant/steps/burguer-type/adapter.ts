@@ -1,5 +1,5 @@
 import { BurguerType } from '@choice-assistant/domain/preference/burguer-type/burguer-type';
-import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 
 export const BURGUER_TYPE_ICON_MAP = new Map<BurguerType, string>([
   [BurguerType.CLASSIC, 'images/burguer-type/classic.png'],

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SimpleChoicePickerComponent } from './simple-choice-picker.component';
+import { MultiChoicePickerComponent } from './multi-choice-picker.component';
 
 describe('SimpleChoicePickerComponent', () => {
-  let component: SimpleChoicePickerComponent;
-  let fixture: ComponentFixture<SimpleChoicePickerComponent>;
+  let component: MultiChoicePickerComponent;
+  let fixture: ComponentFixture<MultiChoicePickerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SimpleChoicePickerComponent],
+      imports: [MultiChoicePickerComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SimpleChoicePickerComponent);
+    fixture = TestBed.createComponent(MultiChoicePickerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

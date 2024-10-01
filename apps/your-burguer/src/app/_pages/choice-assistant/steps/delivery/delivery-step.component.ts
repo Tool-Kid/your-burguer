@@ -2,15 +2,15 @@ import { Component, inject } from '@angular/core';
 import { DELIVERY_CHOICE_CONFIG } from './adapter';
 import {
   SimpleChoice,
-  SimpleChoicePickerComponent,
-} from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+  MultiChoicePickerComponent,
+} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { Delivery } from '@choice-assistant/domain/preference/delivery/delivery';
 
 @Component({
   selector: 'app-delivery-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [MultiChoicePickerComponent],
   templateUrl: './delivery-step.component.html',
   styleUrl: './delivery-step.component.css',
 })

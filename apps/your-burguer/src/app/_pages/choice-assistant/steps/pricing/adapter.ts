@@ -1,5 +1,5 @@
 import { Pricing } from '@choice-assistant/domain/preference/pricing/pricing';
-import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 
 export const PRICING_ICON_MAP = new Map<Pricing, string>([
   [Pricing.LOW_COST, 'images/pricing/low-cost.png'],

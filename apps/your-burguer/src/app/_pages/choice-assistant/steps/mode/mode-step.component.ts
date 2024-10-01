@@ -3,14 +3,14 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 import { Mode } from '@choice-assistant/domain/preference/mode/mode';
 import {
   SimpleChoice,
-  SimpleChoicePickerComponent,
-} from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+  MultiChoicePickerComponent,
+} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { MODE_CHOICE_CONFIG } from './adapter';
 
 @Component({
   selector: 'app-mode-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [MultiChoicePickerComponent],
   templateUrl: './mode-step.component.html',
   styleUrl: './mode-step.component.css',
 })
