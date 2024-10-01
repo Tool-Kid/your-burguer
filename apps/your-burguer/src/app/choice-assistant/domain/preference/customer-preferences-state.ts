@@ -9,14 +9,14 @@ import { SiteType } from './site-type/site-type';
 import { RxjsState } from '../../../core/state/infra/rxjs-state';
 
 export interface CustomerPreferencesProps {
-  burguerType: BurguerType[];
+  burguerType: BurguerType;
   delivery: Delivery[];
-  pricing: Pricing[];
+  pricing: Pricing;
   siteType: SiteType[];
   intolerances: Intolerances[];
   highlights: Highlights[];
   garnish: Garnish[];
-  mode: Mode[];
+  mode: Mode;
   location?: {
     street?: string;
     latitude?: number;
@@ -27,14 +27,14 @@ export interface CustomerPreferencesProps {
 }
 
 const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferencesProps = {
-  burguerType: [],
+  burguerType: BurguerType.CLASSIC,
   delivery: [],
-  pricing: [],
+  pricing: Pricing.REGULAR,
   siteType: [],
   intolerances: [],
   highlights: [],
   garnish: [],
-  mode: [],
+  mode: Mode.PREFERENCE,
 };
 
 export class CustomerPreferencesState extends RxjsState<CustomerPreferencesProps> {
@@ -42,7 +42,7 @@ export class CustomerPreferencesState extends RxjsState<CustomerPreferencesProps
     super('your-burguer___customer-preferences', DEFAULT_CUSTOMER_PREFERENCES);
   }
 
-  private toggleItem<T>(key: keyof CustomerPreferencesProps, item: T) {
+  private toggleMultiItem<T>(key: keyof CustomerPreferencesProps, item: T) {
     const array = (this.snapshot[key] as T[]) || [];
     const set = new Set(array);
 
@@ -58,35 +58,42 @@ export class CustomerPreferencesState extends RxjsState<CustomerPreferencesProps
     });
   }
 
-  toggleBurguerType(burguerType: BurguerType) {
-    this.toggleItem('burguerType', burguerType);
+  private setSimpleItem<T>(key: keyof CustomerPreferencesProps, item: T) {
+    this.patch({
+      ...this.snapshot,
+      [key]: item,
+    });
+  }
+
+  setBurguerType(burguerType: BurguerType) {
+    this.setSimpleItem('burguerType', burguerType);
   }
 
   toggleDelivery(delivery: Delivery) {
-    this.toggleItem('delivery', delivery);
+    this.toggleMultiItem('delivery', delivery);
   }
 
-  togglePricing(pricing: Pricing) {
-    this.toggleItem('pricing', pricing);
+  setPricing(pricing: Pricing) {
+    this.setSimpleItem('pricing', pricing);
   }
 
   toggleSiteType(siteType: SiteType) {
-    this.toggleItem('siteType', siteType);
+    this.toggleMultiItem('siteType', siteType);
   }
 
   toggleIntolerances(intolerances: Intolerances) {
-    this.toggleItem('intolerances', intolerances);
+    this.toggleMultiItem('intolerances', intolerances);
   }
 
   toggleHighlights(highlights: Highlights) {
-    this.toggleItem('highlights', highlights);
+    this.toggleMultiItem('highlights', highlights);
   }
 
   toggleGarnish(garnish: Garnish) {
-    this.toggleItem('garnish', garnish);
+    this.toggleMultiItem('garnish', garnish);
   }
 
-  toggleMode(mode: Mode) {
-    this.toggleItem('mode', mode);
+  setMode(mode: Mode) {
+    this.setSimpleItem('mode', mode);
   }
 }
