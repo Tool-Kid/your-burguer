@@ -1,5 +1,8 @@
 <main class="min-h-screen flex flex-col justify-between">
   <section class="flex-grow">
+    <div class="progress-container">
+      <div class="progress-bar" [style.width]="navigator.snapshot.current.progress + '%'"></div>
+    </div>
     <router-outlet />
   </section>
 
