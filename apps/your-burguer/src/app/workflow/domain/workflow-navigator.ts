@@ -4,6 +4,10 @@ import { WorkflowState } from './workflow.state';
 export abstract class WorkflowNavigator {
   protected state: WorkflowState = new WorkflowState();
 
+  get snapshot() {
+    return this.state.snapshot;
+  }
+
   public setWorkflow(workflow: Workflow): void {
     this.state.setState({
       workflow,
@@ -12,6 +16,7 @@ export abstract class WorkflowNavigator {
         index: 0,
         hasNext: true,
         hasPrevious: false,
+        progress: 0,
       },
     });
   }

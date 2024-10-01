@@ -10,6 +10,7 @@ interface WorkflowStateProps {
     index: number;
     hasNext: boolean;
     hasPrevious: boolean;
+    progress: number;
   };
 }
 
@@ -20,6 +21,7 @@ const DEFAULT_WORKFLOW_STATE_PROPS: WorkflowStateProps = {
     index: 0,
     hasNext: true,
     hasPrevious: false,
+    progress: 0,
   },
 };
 
@@ -42,6 +44,7 @@ export class WorkflowState extends RxjsState<WorkflowStateProps> {
           index: nextIndex,
           hasNext: nextIndex < this.snapshot.workflow.steps.length - 1,
           hasPrevious: nextIndex > 0,
+          progress: this.computeProgress(nextIndex),
         },
       });
     }
@@ -63,6 +66,7 @@ export class WorkflowState extends RxjsState<WorkflowStateProps> {
           index: prevIndex,
           hasNext: prevIndex < this.snapshot.workflow.steps.length - 1,
           hasPrevious: prevIndex > 0,
+          progress: this.computeProgress(prevIndex),
         },
       });
     }
@@ -70,5 +74,9 @@ export class WorkflowState extends RxjsState<WorkflowStateProps> {
 
   hasPrevious(): boolean {
     return this.snapshot.current.index > 0;
+  }
+
+  private computeProgress(index: number) {
+    return ((index + 1) / this.snapshot.workflow.steps.length) * 100;
   }
 }
