@@ -71,4 +71,11 @@ export const appRoutes: Route[] = [
       },
     ],
   },
+  {
+    path: 'proposal',
+    loadComponent: () =>
+      import('./_pages/burguer-proposal/burguer-proposal.page.component').then(
+        (c) => c.BurguerProposalPageComponent
+      ),
+  },
 ];
