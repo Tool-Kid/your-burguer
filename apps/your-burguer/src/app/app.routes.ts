@@ -3,8 +3,10 @@ import { Route } from '@angular/router';
 export const appRoutes: Route[] = [
   {
     path: '',
-    redirectTo: 'choice-assistant/burguer-type',
-    pathMatch: 'full',
+    loadComponent: () =>
+      import('./_pages/landing/landing.page.component').then(
+        (c) => c.LandingPageComponent
+      ),
   },
   {
     path: 'choice-assistant',
