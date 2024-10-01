@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
-import {
-  SimpleChoice,
-  MultiChoicePickerComponent,
-} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { Pricing } from '@choice-assistant/domain/preference/pricing/pricing';
 import { PRICING_CHOICE_CONFIG } from './adapter';
+import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-pricing-step',
@@ -22,7 +20,7 @@ export class PricingStepComponent {
     return this.customerPreferencesState.snapshot.pricing;
   }
 
-  onChoiceChanged(choice: SimpleChoice) {
+  onChoiceChanged(choice: UiChoice) {
     this.customerPreferencesState.togglePricing(choice.value as Pricing);
   }
 }

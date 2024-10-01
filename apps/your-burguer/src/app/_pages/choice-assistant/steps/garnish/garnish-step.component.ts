@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
-import {
-  SimpleChoice,
-  MultiChoicePickerComponent,
-} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { Garnish } from '@choice-assistant/domain/preference/garnish/garnish';
 import { GARNISH_CHOICE_CONFIG } from './adapter';
+import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-garnish-step',
@@ -23,7 +21,7 @@ export class GarnishStepComponent {
     return this.customerPreferencesState.snapshot.garnish;
   }
 
-  onChoiceChanged(choice: SimpleChoice) {
+  onChoiceChanged(choice: UiChoice) {
     this.customerPreferencesState.toggleGarnish(choice.value as Garnish);
   }
 }

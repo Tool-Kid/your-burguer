@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
-import {
-  SimpleChoice,
-  MultiChoicePickerComponent,
-} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { Intolerances } from '@choice-assistant/domain/preference/intolerances/intolerances';
 import { INTOLERANCES_CHOICE_CONFIG } from './adapter';
+import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-intolerances-step',
@@ -23,7 +21,7 @@ export class IntolerancesStepComponent {
     return this.customerPreferencesState.snapshot.intolerances;
   }
 
-  onChoiceChanged(choice: SimpleChoice) {
+  onChoiceChanged(choice: UiChoice) {
     this.customerPreferencesState.toggleIntolerances(
       choice.value as Intolerances
     );

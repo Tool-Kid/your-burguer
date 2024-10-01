@@ -1,22 +1,15 @@
 import { Component, input, output, model, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { UiChoice } from '../ui-choice';
 
 export interface SimpleChoiceConfig {
-  choices: SimpleChoice[];
+  choices: UiChoice[];
   default: string;
-}
-
-export interface SimpleChoice {
-  displayText: string;
-  value: string;
-  icon: string;
 }
 
 @Component({
   selector: 'app-multi-choice-picker',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [],
   templateUrl: './multi-choice-picker.component.html',
   styleUrl: './multi-choice-picker.component.css',
 })
@@ -24,9 +17,9 @@ export class MultiChoicePickerComponent implements OnInit {
   title = input.required<string>();
   config = input.required<SimpleChoiceConfig>();
   value = input.required<string[]>();
-  choiceChanged = output<SimpleChoice>();
+  choiceChanged = output<UiChoice>();
 
-  choicesPicked = model<Set<SimpleChoice>>(new Set());
+  choicesPicked = model<Set<UiChoice>>(new Set());
 
   ngOnInit(): void {
     for (const choice of this.value()) {
@@ -37,12 +30,12 @@ export class MultiChoicePickerComponent implements OnInit {
     }
   }
 
-  pickChoice(choice: SimpleChoice) {
+  pickChoice(choice: UiChoice) {
     this.toggleChoice(choice);
     this.choiceChanged.emit(choice);
   }
 
-  private toggleChoice(choice: SimpleChoice) {
+  private toggleChoice(choice: UiChoice) {
     this.choicesPicked.update((choices) => {
       if (choices.has(choice)) {
         choices.delete(choice);
@@ -52,7 +45,7 @@ export class MultiChoicePickerComponent implements OnInit {
     });
   }
 
-  isPicked(choice: SimpleChoice) {
+  isPicked(choice: UiChoice) {
     return this.choicesPicked()?.has(choice);
   }
 }

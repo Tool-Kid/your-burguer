@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { DELIVERY_CHOICE_CONFIG } from './adapter';
-import {
-  SimpleChoice,
-  MultiChoicePickerComponent,
-} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { Delivery } from '@choice-assistant/domain/preference/delivery/delivery';
+import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-delivery-step',
@@ -23,7 +21,7 @@ export class DeliveryStepComponent {
     return this.customerPreferencesState.snapshot.delivery;
   }
 
-  onChoiceChanged(choice: SimpleChoice) {
+  onChoiceChanged(choice: UiChoice) {
     this.customerPreferencesState.toggleDelivery(choice.value as Delivery);
   }
 }

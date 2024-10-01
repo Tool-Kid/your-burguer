@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { BURGUER_TYPE_CHOICE_CONFIG } from './adapter';
-import {
-  SimpleChoice,
-  MultiChoicePickerComponent,
-} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { BurguerType } from '@choice-assistant/domain/preference/burguer-type/burguer-type';
+import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-burguer-type-step',
@@ -22,7 +20,7 @@ export class BurguerTypeStepComponent {
     return this.customerPreferencesState.snapshot.burguerType;
   }
 
-  onChoiceChanged(choice: SimpleChoice) {
+  onChoiceChanged(choice: UiChoice) {
     this.customerPreferencesState.toggleBurguerType(
       choice.value as BurguerType
     );

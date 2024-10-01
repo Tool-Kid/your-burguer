@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
-import {
-  SimpleChoice,
-  MultiChoicePickerComponent,
-} from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
 import { SiteType } from '@choice-assistant/domain/preference/site-type/site-type';
 import { SITE_TYPE_CHOICE_CONFIG } from './adapter';
+import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-site-type-step',
@@ -22,7 +20,7 @@ export class SiteTypeStepComponent {
     return this.customerPreferencesState.snapshot.siteType;
   }
 
-  onChoiceChanged(choice: SimpleChoice) {
+  onChoiceChanged(choice: UiChoice) {
     this.customerPreferencesState.toggleSiteType(choice.value as SiteType);
   }
 }
