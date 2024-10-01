@@ -7,26 +7,9 @@ import { Mode } from './mode/mode';
 import { Pricing } from './pricing/pricing';
 import { SiteType } from './site-type/site-type';
 import { RxjsState } from '../../../core/state/infra/rxjs-state';
+import { CustomerPreferences } from './customer-preferences';
 
-export interface CustomerPreferencesProps {
-  burguerType: BurguerType;
-  delivery: Delivery[];
-  pricing: Pricing;
-  siteType: SiteType[];
-  intolerances: Intolerances[];
-  highlights: Highlights[];
-  garnish: Garnish[];
-  mode: Mode;
-  location?: {
-    street?: string;
-    latitude?: number;
-    longitude?: number;
-    altitude?: number;
-    radius?: number;
-  };
-}
-
-const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferencesProps = {
+const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferences = {
   burguerType: BurguerType.CLASSIC,
   delivery: [],
   pricing: Pricing.REGULAR,
@@ -37,12 +20,12 @@ const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferencesProps = {
   mode: Mode.PREFERENCE,
 };
 
-export class CustomerPreferencesState extends RxjsState<CustomerPreferencesProps> {
+export class CustomerPreferencesState extends RxjsState<CustomerPreferences> {
   constructor() {
     super('your-burguer___customer-preferences', DEFAULT_CUSTOMER_PREFERENCES);
   }
 
-  private toggleMultiItem<T>(key: keyof CustomerPreferencesProps, item: T) {
+  private toggleMultiItem<T>(key: keyof CustomerPreferences, item: T) {
     const array = (this.snapshot[key] as T[]) || [];
     const set = new Set(array);
 
@@ -58,7 +41,7 @@ export class CustomerPreferencesState extends RxjsState<CustomerPreferencesProps
     });
   }
 
-  private setSimpleItem<T>(key: keyof CustomerPreferencesProps, item: T) {
+  private setSimpleItem<T>(key: keyof CustomerPreferences, item: T) {
     this.patch({
       ...this.snapshot,
       [key]: item,
