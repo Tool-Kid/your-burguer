@@ -1,9 +1,9 @@
 import { EntitySchema } from '@mikro-orm/core';
-import { Allergen } from '../../../domain/allergen/allergen';
+import { Ingredient } from '../../../domain/ingredient/ingredient';
 
-export const AllergenSchema = new EntitySchema<Allergen>({
-  class: Allergen,
-  tableName: 'allergens',
+export const IngredientSchema = new EntitySchema<Ingredient>({
+  class: Ingredient,
+  tableName: 'ingredients',
   properties: {
     id: { type: 'int', primary: true, autoincrement: true },
     name: { type: 'string', nullable: false },

@@ -1,6 +1,6 @@
-import { Allergen } from './allergen';
+import { Allergen } from './allergen/allergen';
 import { BurgerPlace } from './burger-place';
-import { Ingredient } from './ingredient';
+import { Ingredient } from './ingredient/ingredient';
 
 interface BurgerProps {
   id: string;

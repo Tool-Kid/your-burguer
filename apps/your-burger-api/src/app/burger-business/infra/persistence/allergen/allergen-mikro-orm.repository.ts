@@ -1,6 +1,6 @@
 import { EntityManager } from '@mikro-orm/core';
-import { Allergen } from '../../../domain/allergen';
-import { AllergensRepository } from '../../../domain/allergens.repository';
+import { Allergen } from '../../../domain/allergen/allergen';
+import { AllergensRepository } from '../../../domain/allergen/allergens.repository';
 import { Injectable } from '@nestjs/common';
 import { AllergenSchema } from './allergen.schema';
 
