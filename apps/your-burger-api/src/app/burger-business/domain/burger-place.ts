@@ -1,4 +1,4 @@
-import { BurgerBrand } from './burger-brand';
+import { BurgerBrand } from './burger-brand/burger-brand';
 
 interface BurgerPlaceProps {
   geo: {
