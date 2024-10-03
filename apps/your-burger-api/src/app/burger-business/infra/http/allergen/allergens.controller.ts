@@ -1,8 +1,11 @@
 import { Controller, Get } from '@nestjs/common';
 import { AllergensRepository } from '../../../domain/allergen/allergens.repository';
 import { Allergen } from '../../../domain/allergen/allergen';
+import { ApiTags } from '@nestjs/swagger';
+import { API_TAGS } from '../../../../../open-api';
 
 @Controller('allergens')
+@ApiTags(API_TAGS.BURGER_BUSINESS)
 export class AllergensController {
   constructor(private readonly allergensRepository: AllergensRepository) {}
 
