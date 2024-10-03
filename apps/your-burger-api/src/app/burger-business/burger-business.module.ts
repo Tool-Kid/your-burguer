@@ -8,21 +8,27 @@ import { IngredientsMikroOrmRepository } from './infra/persistence/ingredient/in
 import { BurgerBrandsController } from './infra/http/burger-brand/burger-brand.controller';
 import { BrugerBrandsRepository } from './domain/burger-brand/burger-brand.repository';
 import { BurgerBrandsMikroOrmRepository } from './infra/persistence/burger-brand/burger-brand-mikro-orm.repository';
+import { BurgerPlacesController } from './infra/http/burger-place/burger-places.controller';
+import { BurgerPlacesRepository } from './domain/burger-place/burger-places.repository';
+import { BurgerPlacesMikroOrmRepository } from './infra/persistence/burger-place/burger-place-mikro-orm.repository';
 
 @Module({
   controllers: [
     AllergensController,
     IngredientsController,
     BurgerBrandsController,
+    BurgerPlacesController,
   ],
   providers: [
-    /*{ provide: BurgerRepository, useClass: BurgerRepository as any },
-    { provide: BurgerPlaceRepository, useClass: BurgerPlaceRepository as any },*/
     { provide: AllergensRepository, useClass: AllergenMikroOrmRepository },
     { provide: IngredientsRepository, useClass: IngredientsMikroOrmRepository },
     {
       provide: BrugerBrandsRepository,
       useClass: BurgerBrandsMikroOrmRepository,
+    },
+    {
+      provide: BurgerPlacesRepository,
+      useClass: BurgerPlacesMikroOrmRepository,
     },
   ],
 })

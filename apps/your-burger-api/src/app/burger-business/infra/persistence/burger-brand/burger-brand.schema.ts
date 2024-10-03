@@ -6,6 +6,6 @@ export const BurgerBrandSchema = new EntitySchema<BurgerBrand>({
   tableName: 'burger_brands',
   properties: {
     id: { type: 'int', primary: true, autoincrement: true },
-    name: { type: 'string', nullable: false },
+    name: { type: 'string', nullable: false, primary: true },
   },
 });
