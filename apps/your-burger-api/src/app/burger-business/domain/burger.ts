@@ -10,4 +10,10 @@ interface BurgerProps {
   place: BurgerPlace;
 }
 
-export class Burger {}
+export class Burger implements BurgerProps {
+  id: string;
+  name: string;
+  ingredients?: Ingredient[];
+  allergens?: Allergen[];
+  place: BurgerPlace;
+}

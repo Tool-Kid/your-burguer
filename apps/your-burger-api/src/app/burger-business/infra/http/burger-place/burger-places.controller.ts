@@ -5,7 +5,7 @@ import { BurgerPlacesRepository } from '../../../domain/burger-place/burger-plac
 import { BurgerPlace } from '../../../domain/burger-place/burger-place';
 
 @Controller('burger-places')
-@ApiTags(API_TAGS.BURGER_BUSINESS)
+@ApiTags(API_TAGS.BURGER_PLACES)
 export class BurgerPlacesController {
   constructor(
     private readonly burgerPlacesRepository: BurgerPlacesRepository

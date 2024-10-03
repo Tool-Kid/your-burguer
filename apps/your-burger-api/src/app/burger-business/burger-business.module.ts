@@ -11,13 +11,17 @@ import { BurgerBrandsMikroOrmRepository } from './infra/persistence/burger-brand
 import { BurgerPlacesController } from './infra/http/burger-place/burger-places.controller';
 import { BurgerPlacesRepository } from './domain/burger-place/burger-places.repository';
 import { BurgerPlacesMikroOrmRepository } from './infra/persistence/burger-place/burger-place-mikro-orm.repository';
+import { BurgersRepository } from './domain/burgers.repository';
+import { BurgersMikroOrmRepository } from './infra/persistence/burger/burgers-mikro-orm.repository';
+import { BurgersController } from './infra/http/burger/burgers.controller';
 
 @Module({
   controllers: [
+    BurgersController,
     AllergensController,
     IngredientsController,
-    BurgerBrandsController,
     BurgerPlacesController,
+    BurgerBrandsController,
   ],
   providers: [
     { provide: AllergensRepository, useClass: AllergenMikroOrmRepository },
@@ -29,6 +33,10 @@ import { BurgerPlacesMikroOrmRepository } from './infra/persistence/burger-place
     {
       provide: BurgerPlacesRepository,
       useClass: BurgerPlacesMikroOrmRepository,
+    },
+    {
+      provide: BurgersRepository,
+      useClass: BurgersMikroOrmRepository,
     },
   ],
 })

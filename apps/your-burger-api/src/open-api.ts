@@ -2,7 +2,8 @@ import { INestApplication } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export const API_TAGS = {
-  BURGER_BUSINESS: 'burger-business',
+  BURGERS: 'Burgers',
+  BURGER_PLACES: 'Burger Places',
 };
 
 export function setupOpenApi(app: INestApplication) {
@@ -10,7 +11,6 @@ export function setupOpenApi(app: INestApplication) {
     .setTitle('Your burger API')
     .setDescription('An API for burger info management')
     .setVersion('1.0')
-    .addTag('burger-business')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

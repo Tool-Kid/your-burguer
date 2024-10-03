@@ -178,6 +178,177 @@
       "columns": {
         "id": {
           "name": "id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 36,
+          "mappedType": "text"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "place_id": {
+          "name": "place_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 36,
+          "mappedType": "text"
+        }
+      },
+      "name": "burgers",
+      "indexes": [
+        {
+          "columnNames": [
+            "name"
+          ],
+          "composite": false,
+          "keyName": "burgers_name_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "columnNames": [
+            "place_id"
+          ],
+          "composite": false,
+          "keyName": "burgers_place_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "burgers_place_id_foreign": {
+          "constraintName": "burgers_place_id_foreign",
+          "columnNames": [
+            "place_id"
+          ],
+          "localTableName": "burgers",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "burger_places",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "burger_id": {
+          "name": "burger_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 36,
+          "mappedType": "text"
+        },
+        "allergen_id": {
+          "name": "allergen_id",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        }
+      },
+      "name": "burgers_allergens",
+      "indexes": [
+        {
+          "columnNames": [
+            "burger_id"
+          ],
+          "composite": false,
+          "keyName": "burgers_allergens_burger_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "allergen_id"
+          ],
+          "composite": false,
+          "keyName": "burgers_allergens_allergen_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "burger_id",
+            "allergen_id"
+          ],
+          "composite": true,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "burgers_allergens_burger_id_foreign": {
+          "constraintName": "burgers_allergens_burger_id_foreign",
+          "columnNames": [
+            "burger_id"
+          ],
+          "localTableName": "burgers_allergens",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "burgers",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        },
+        "burgers_allergens_allergen_id_foreign": {
+          "constraintName": "burgers_allergens_allergen_id_foreign",
+          "columnNames": [
+            "allergen_id"
+          ],
+          "localTableName": "burgers_allergens",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "allergens",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      },
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
           "type": "integer",
           "unsigned": false,
           "autoincrement": true,
@@ -222,6 +393,94 @@
       ],
       "checks": [],
       "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "burger_id": {
+          "name": "burger_id",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 36,
+          "mappedType": "text"
+        },
+        "ingredient_id": {
+          "name": "ingredient_id",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        }
+      },
+      "name": "burgers_ingredients",
+      "indexes": [
+        {
+          "columnNames": [
+            "burger_id"
+          ],
+          "composite": false,
+          "keyName": "burgers_ingredients_burger_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "ingredient_id"
+          ],
+          "composite": false,
+          "keyName": "burgers_ingredients_ingredient_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "burger_id",
+            "ingredient_id"
+          ],
+          "composite": true,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "burgers_ingredients_burger_id_foreign": {
+          "constraintName": "burgers_ingredients_burger_id_foreign",
+          "columnNames": [
+            "burger_id"
+          ],
+          "localTableName": "burgers_ingredients",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "burgers",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        },
+        "burgers_ingredients_ingredient_id_foreign": {
+          "constraintName": "burgers_ingredients_ingredient_id_foreign",
+          "columnNames": [
+            "ingredient_id"
+          ],
+          "localTableName": "burgers_ingredients",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "ingredients",
+          "deleteRule": "cascade",
+          "updateRule": "cascade"
+        }
+      },
       "nativeEnums": {}
     }
   ],

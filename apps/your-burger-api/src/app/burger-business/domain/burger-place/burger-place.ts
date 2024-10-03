@@ -1,3 +1,4 @@
+import { Burger } from '../burger';
 import { BurgerBrand } from '../burger-brand/burger-brand';
 
 interface BurgerPlaceProps {
@@ -8,6 +9,7 @@ interface BurgerPlaceProps {
     longitude: number;
   };
   brand: BurgerBrand;
+  burgers: Burger[];
 }
 
 export class BurgerPlace implements BurgerPlaceProps {
@@ -18,4 +20,5 @@ export class BurgerPlace implements BurgerPlaceProps {
     longitude: number;
   };
   brand: BurgerBrand;
+  burgers: Burger[];
 }
