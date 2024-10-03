@@ -58,7 +58,7 @@
           "type": "integer",
           "unsigned": false,
           "autoincrement": true,
-          "primary": false,
+          "primary": true,
           "nullable": false,
           "length": null,
           "mappedType": "integer"
@@ -77,12 +77,21 @@
       "name": "burger_brands",
       "indexes": [
         {
-          "keyName": "primary",
           "columnNames": [
-            "id",
             "name"
           ],
-          "composite": true,
+          "composite": false,
+          "keyName": "burger_brands_name_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
           "constraint": true,
           "primary": true,
           "unique": true
@@ -114,16 +123,6 @@
           "length": null,
           "mappedType": "integer"
         },
-        "brand_name": {
-          "name": "brand_name",
-          "type": "text",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "length": null,
-          "mappedType": "text"
-        },
         "geo": {
           "name": "geo",
           "type": "json",
@@ -138,12 +137,11 @@
       "name": "burger_places",
       "indexes": [
         {
-          "keyName": "burger_places_brand_id_brand_name_index",
           "columnNames": [
-            "brand_id",
-            "brand_name"
+            "brand_id"
           ],
-          "composite": true,
+          "composite": false,
+          "keyName": "burger_places_brand_id_index",
           "constraint": false,
           "primary": false,
           "unique": false
@@ -161,16 +159,14 @@
       ],
       "checks": [],
       "foreignKeys": {
-        "burger_places_brand_id_brand_name_foreign": {
-          "constraintName": "burger_places_brand_id_brand_name_foreign",
+        "burger_places_brand_id_foreign": {
+          "constraintName": "burger_places_brand_id_foreign",
           "columnNames": [
-            "brand_id",
-            "brand_name"
+            "brand_id"
           ],
           "localTableName": "burger_places",
           "referencedColumnNames": [
-            "id",
-            "name"
+            "id"
           ],
           "referencedTableName": "burger_brands",
           "updateRule": "cascade"
