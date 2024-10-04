@@ -5,7 +5,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { API_TAGS } from '../../../../../open-api';
 
 @Controller('ingredients')
-@ApiTags(API_TAGS.BURGERS)
+@ApiTags(API_TAGS.INGREDIENTS)
 export class IngredientsController {
   constructor(private readonly ingredientsRepository: IngredientsRepository) {}
 

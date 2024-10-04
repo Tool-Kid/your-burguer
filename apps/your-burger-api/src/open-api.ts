@@ -3,7 +3,11 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 export const API_TAGS = {
   BURGERS: 'Burgers',
+  ALLERGENS: 'Allergens',
+  INGREDIENTS: 'Ingredients',
+  BURGER_BRANDS: 'Burger Brands',
   BURGER_PLACES: 'Burger Places',
+  PROPOSAL: 'Proposal',
 };
 
 export function setupOpenApi(app: INestApplication) {

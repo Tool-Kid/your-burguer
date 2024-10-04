@@ -1,0 +1,15 @@
+id,name,i18n_key
+1,GLUTEN,allergen.gluten
+2,CRUSTACEANS,allergen.crustaceans
+3,EGGS,allergen.eggs
+4,FISH,allergen.fish
+5,PEANUTS,allergen.peanuts
+6,SOYBEANS,allergen.soybeans
+7,MILK,allergen.milk
+8,NUTS,allergen.nuts
+9,CELERY,allergen.celery
+10,MUSTARD,allergen.mustard
+11,SESAME,allergen.sesame
+12,SULPHUR_DIOXIDE,allergen.sulphurDioxide
+13,LUPIN,allergen.lupin
+14,MOLLUSCS,allergen.molluscs
