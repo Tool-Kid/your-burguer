@@ -12,6 +12,7 @@
         <button
         (click)="navigator.previous()"
         [hidden]="!navigator.hasPrevious()"
+        [disabled]="!navigator.snapshot.current.canGoPrevious"
         class="prev-button"
       >
         Prev
@@ -21,6 +22,7 @@
       <button
         (click)="navigator.previous()"
         [hidden]="!navigator.hasPrevious()"
+        [disabled]="!navigator.snapshot.current.canGoPrevious"
         class="prev-button"
       >
         Prev
@@ -28,6 +30,7 @@
       <button
         (click)="navigator.next()"
         [hidden]="!navigator.hasNext()"
+        [disabled]="!navigator.snapshot.current.canGoNext"
         class="next-button"
       >
         Next

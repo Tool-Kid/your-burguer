@@ -15,7 +15,9 @@ export abstract class WorkflowNavigator {
         step: workflow.steps[0],
         index: 0,
         hasNext: true,
+        canGoNext: false,
         hasPrevious: false,
+        canGoPrevious: false,
         progress: 0,
       },
     });
@@ -27,10 +29,30 @@ export abstract class WorkflowNavigator {
     return this.state.hasNext();
   }
 
+  public setCanGoNext(value: boolean) {
+    this.state.patch({
+      ...this.state.snapshot,
+      current: {
+        ...this.state.snapshot.current,
+        canGoNext: value,
+      },
+    });
+  }
+
   public abstract previous(): void;
 
   public hasPrevious(): boolean {
     return this.state.hasPrevious();
+  }
+
+  public setCanGoPrevious(value: boolean) {
+    this.state.patch({
+      ...this.state.snapshot,
+      current: {
+        ...this.state.snapshot.current,
+        canGoPrevious: value,
+      },
+    });
   }
 
   public abstract navigateToCurrent(): void;
