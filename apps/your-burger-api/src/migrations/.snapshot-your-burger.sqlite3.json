@@ -105,6 +105,79 @@
       "columns": {
         "id": {
           "name": "id",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": true,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
+        },
+        "street": {
+          "name": "street",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "latitude": {
+          "name": "latitude",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
+        },
+        "longitude": {
+          "name": "longitude",
+          "type": "numeric(10,0)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
+        }
+      },
+      "name": "geopoints",
+      "indexes": [
+        {
+          "columnNames": [
+            "street"
+          ],
+          "composite": false,
+          "keyName": "geopoints_street_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
           "type": "text",
           "unsigned": false,
           "autoincrement": true,
@@ -123,15 +196,16 @@
           "length": null,
           "mappedType": "integer"
         },
-        "geo": {
-          "name": "geo",
-          "type": "json",
+        "geo_id": {
+          "name": "geo_id",
+          "type": "numeric(10,0)",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "length": null,
-          "mappedType": "json"
+          "precision": 10,
+          "scale": 0,
+          "mappedType": "decimal"
         }
       },
       "name": "burger_places",
@@ -145,6 +219,16 @@
           "constraint": false,
           "primary": false,
           "unique": false
+        },
+        {
+          "columnNames": [
+            "geo_id"
+          ],
+          "composite": false,
+          "keyName": "burger_places_geo_id_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
         },
         {
           "keyName": "primary",
@@ -169,6 +253,18 @@
             "id"
           ],
           "referencedTableName": "burger_brands",
+          "updateRule": "cascade"
+        },
+        "burger_places_geo_id_foreign": {
+          "constraintName": "burger_places_geo_id_foreign",
+          "columnNames": [
+            "geo_id"
+          ],
+          "localTableName": "burger_places",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "geopoints",
           "updateRule": "cascade"
         }
       },

@@ -1,7 +1,7 @@
 import { BurgerPlace } from '../burger-place/burger-place';
 
 export class BurgerBrand {
-  id: string;
+  id: number;
   name: string;
   burgerPlace: BurgerPlace;
 }

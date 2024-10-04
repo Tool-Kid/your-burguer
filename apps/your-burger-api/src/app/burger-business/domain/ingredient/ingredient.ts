@@ -1,5 +1,5 @@
 export class Ingredient {
-  id: string;
+  id: number;
   name: string;
   i18nKey: string;
 }

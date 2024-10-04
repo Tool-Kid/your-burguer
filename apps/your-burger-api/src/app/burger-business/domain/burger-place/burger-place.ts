@@ -1,5 +1,6 @@
 import { Burger } from '../burger';
 import { BurgerBrand } from '../burger-brand/burger-brand';
+import { GeoPoint } from './geo-point';
 
 interface BurgerPlaceProps {
   id: string;
@@ -14,11 +15,7 @@ interface BurgerPlaceProps {
 
 export class BurgerPlace implements BurgerPlaceProps {
   id: string;
-  geo: {
-    street: string;
-    latitude: number;
-    longitude: number;
-  };
+  geo: GeoPoint;
   brand: BurgerBrand;
   burgers: Burger[];
 }

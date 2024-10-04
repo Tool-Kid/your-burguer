@@ -1,5 +1,5 @@
 export class Allergen {
-  id: string;
+  id: number;
   name: string;
   i18nKey: string;
 }

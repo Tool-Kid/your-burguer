@@ -1,8 +1,8 @@
 import { EntitySchema } from '@mikro-orm/core';
 import { BurgerPlace } from '../../../domain/burger-place/burger-place';
-import { GeoPointType } from './geo-point';
 import { BurgerBrand } from '../../../domain/burger-brand/burger-brand';
 import { Burger } from '../../../domain/burger';
+import { GeoPoint } from '../../../domain/burger-place/geo-point';
 
 export const BurgerPlaceSchema = new EntitySchema<BurgerPlace>({
   class: BurgerPlace,
@@ -14,7 +14,7 @@ export const BurgerPlaceSchema = new EntitySchema<BurgerPlace>({
       entity: () => BurgerBrand,
       inversedBy: (brand) => brand.burgerPlace,
     },
-    geo: { type: GeoPointType },
+    geo: { kind: '1:1', entity: () => GeoPoint },
     burgers: {
       kind: '1:m',
       entity: () => Burger,
