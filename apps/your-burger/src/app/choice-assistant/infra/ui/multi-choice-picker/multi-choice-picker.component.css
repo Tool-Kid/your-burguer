@@ -6,27 +6,41 @@
   }
 
   .grid-container {
-    @apply grid grid-cols-2 gap-4 text-center content-stretch;
+    @apply grid grid-cols-1 gap-2 content-stretch;
 
-    .choice-item {
-      @apply relative flex flex-col items-center justify-center;
-      @apply bg-gray-200 border-2 border-purple-500 rounded-lg cursor-pointer transition-all duration-200 p-8;
-    }
+    .choice-container {
+      @apply relative flex flex-col;
 
-    .icon {
-      @apply w-12 h-12 mb-2;
-    }
+      .choice-item {
+        @apply grid grid-cols-4  content-stretch p-1 rounded-lg;
+        @apply transition-all duration-200;
 
-    .checkmark {
-      @apply absolute top-0 right-0 px-2 py-1 m-2 text-white bg-green-500 rounded-full;
-    }
+        .icon {
+          @apply col-span-1 w-12 h-12 content-center;
+          justify-self: center;
+          align-self: center;
+        }
 
-    .choice-text {
-      @apply text-sm font-medium;
-    }
+        .checkmark {
+          @apply absolute top-0 right-0 px-2 py-1 m-2 text-white bg-green-500 rounded-full text-xs;
+        }
 
-    .selected {
-      @apply bg-purple-500 text-white;
+        .choice-text {
+          @apply col-span-3;
+
+          .choice-name {
+            @apply text-lg font-bold;
+          }
+
+          .choice-description {
+            @apply text-sm font-normal;
+          }
+
+          .selected {
+            @apply bg-purple-500 text-white;
+          }
+        }
+      }
     }
   }
 }
