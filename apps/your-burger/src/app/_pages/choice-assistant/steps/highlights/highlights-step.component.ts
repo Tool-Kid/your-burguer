@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { Highlights } from '@choice-assistant/domain/preference/highlights/highlights';
-import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 import { HIGHLIGHTS_CHOICE_CONFIG } from './adapter';
 import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
 
 @Component({
   selector: 'app-highlights-step',
   standalone: true,
-  imports: [MultiChoicePickerComponent],
+  imports: [ChoicePickerComponent],
   templateUrl: './highlights-step.component.html',
   styleUrl: './highlights-step.component.css',
 })

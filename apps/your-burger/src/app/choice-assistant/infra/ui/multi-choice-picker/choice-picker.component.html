@@ -16,7 +16,7 @@
           <img [src]="choice.icon" alt="" class="icon">
         </div>
 
-        @if (isPicked(choice)) {
+        @if (mode() === 'MULTI' && isPicked(choice)) {
           <div class="checkmark"> ✓ </div>
         }
 

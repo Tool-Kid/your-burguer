@@ -1,5 +1,5 @@
 import { Delivery } from '@choice-assistant/domain/preference/delivery/delivery';
-import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 
 export const DELIVERY_ICON_MAP = new Map<Delivery, string>([
   [Delivery.IN_SITE, 'images/delivery/in-site.png'],

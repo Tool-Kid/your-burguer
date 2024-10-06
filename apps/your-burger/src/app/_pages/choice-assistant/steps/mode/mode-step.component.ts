@@ -3,12 +3,12 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 import { Mode } from '@choice-assistant/domain/preference/mode/mode';
 import { MODE_CHOICE_CONFIG } from './adapter';
 import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
-import { SimpleChoicePickerComponent } from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 
 @Component({
   selector: 'app-mode-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [ChoicePickerComponent],
   templateUrl: './mode-step.component.html',
   styleUrl: './mode-step.component.css',
 })
@@ -18,7 +18,7 @@ export class ModeStepComponent {
   config = MODE_CHOICE_CONFIG;
 
   get value() {
-    return this.customerPreferencesState.snapshot.mode;
+    return [this.customerPreferencesState.snapshot.mode];
   }
 
   onChoiceChanged(choice: UiChoice) {

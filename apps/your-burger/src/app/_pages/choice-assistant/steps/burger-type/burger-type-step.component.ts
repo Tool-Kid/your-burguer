@@ -3,12 +3,12 @@ import { BURGER_TYPE_CHOICE_CONFIG } from './adapter';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { BurgerType } from '@choice-assistant/domain/preference/burger-type/burger-type';
 import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
-import { SimpleChoicePickerComponent } from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 
 @Component({
   selector: 'app-burger-type-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [ChoicePickerComponent],
   templateUrl: './burger-type-step.component.html',
   styleUrl: './burger-type-step.component.css',
 })
@@ -17,7 +17,7 @@ export class BurgerTypeStepComponent {
   config = BURGER_TYPE_CHOICE_CONFIG;
 
   get value() {
-    return this.customerPreferencesState.snapshot.burgerType;
+    return [this.customerPreferencesState.snapshot.burgerType];
   }
 
   onChoiceChanged(choice: UiChoice) {

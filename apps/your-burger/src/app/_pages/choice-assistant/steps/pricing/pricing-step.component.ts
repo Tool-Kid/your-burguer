@@ -3,12 +3,12 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 import { Pricing } from '@choice-assistant/domain/preference/pricing/pricing';
 import { PRICING_CHOICE_CONFIG } from './adapter';
 import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
-import { SimpleChoicePickerComponent } from '@choice-assistant/infra/ui/simple-choice-picker/simple-choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 
 @Component({
   selector: 'app-pricing-step',
   standalone: true,
-  imports: [SimpleChoicePickerComponent],
+  imports: [ChoicePickerComponent],
   templateUrl: './pricing-step.component.html',
   styleUrl: './pricing-step.component.css',
 })
@@ -17,7 +17,7 @@ export class PricingStepComponent {
   config = PRICING_CHOICE_CONFIG;
 
   get value() {
-    return this.customerPreferencesState.snapshot.pricing;
+    return [this.customerPreferencesState.snapshot.pricing];
   }
 
   onChoiceChanged(choice: UiChoice) {

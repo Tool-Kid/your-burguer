@@ -9,7 +9,7 @@
     @apply grid grid-cols-1 gap-2 content-stretch;
 
     .choice-container {
-      @apply relative flex flex-col;
+      @apply relative flex flex-col cursor-pointer;
 
       .choice-item {
         @apply grid grid-cols-4  content-stretch p-1 rounded-lg;

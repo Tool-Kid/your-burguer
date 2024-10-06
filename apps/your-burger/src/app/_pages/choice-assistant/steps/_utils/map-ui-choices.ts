@@ -1,5 +1,5 @@
 import { CustomerPreference } from '@choice-assistant/domain/preference/customer-preference';
-import { Choice } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { Choice } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 
 export function mapToUiChoices(
   preferences: CustomerPreference<any, any>[]

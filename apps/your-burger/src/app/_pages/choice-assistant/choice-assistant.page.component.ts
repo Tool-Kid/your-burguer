@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MultiChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 import { RouterModule } from '@angular/router';
 import { WorkflowNavigator } from '@workflow/domain/workflow-navigator';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
@@ -7,7 +7,7 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 @Component({
   selector: 'app-choice-assistant-page',
   standalone: true,
-  imports: [RouterModule, MultiChoicePickerComponent],
+  imports: [RouterModule, ChoicePickerComponent],
   templateUrl: './choice-assistant.page.component.html',
   styleUrl: './choice-assistant.page.component.css',
 })

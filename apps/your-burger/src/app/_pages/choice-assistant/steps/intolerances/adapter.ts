@@ -1,5 +1,5 @@
 import { Intolerances } from '@choice-assistant/domain/preference/intolerances/intolerances';
-import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/multi-choice-picker.component';
+import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 
 export const INTOLERANCES_ICON_MAP = new Map<Intolerances, string>([
   [Intolerances.NONE, 'images/intolerances/none.png'],
