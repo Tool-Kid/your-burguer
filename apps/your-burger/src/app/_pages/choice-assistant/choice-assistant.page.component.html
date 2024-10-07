@@ -32,6 +32,7 @@
         [hidden]="!navigator.hasNext()"
         [disabled]="!navigator.snapshot.current.canGoNext"
         class="next-button"
+        [class.disabled]="!navigator.snapshot.current.canGoNext"
       >
         Next
       </button>

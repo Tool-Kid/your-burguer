@@ -1,5 +1,5 @@
 .section {
-  @apply border p-4 rounded-lg;
+  @apply m-4 border-t-2;
 
   .title {
     @apply text-xl font-semibold mb-4;

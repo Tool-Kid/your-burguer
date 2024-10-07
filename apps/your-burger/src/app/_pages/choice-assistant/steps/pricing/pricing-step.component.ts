@@ -3,7 +3,7 @@ import { CustomerPreferencesState } from '@choice-assistant/domain/preference/cu
 import { Pricing } from '@choice-assistant/domain/preference/pricing/pricing';
 import { PRICING_CHOICE_CONFIG } from './adapter';
 import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
-import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/choice-picker/choice-picker.component';
 
 @Component({
   selector: 'app-pricing-step',

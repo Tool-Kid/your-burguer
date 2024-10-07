@@ -1,5 +1,5 @@
 import { BurgerType } from '@choice-assistant/domain/preference/burger-type/burger-type';
-import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
+import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/choice-picker/choice-picker.component';
 
 export const BURGER_TYPE_ICON_MAP = new Map<BurgerType, string>([
   [BurgerType.CLASSIC, 'images/burger-type/classic.png'],

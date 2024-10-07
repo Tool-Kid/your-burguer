@@ -1,5 +1,5 @@
 import { Garnish } from '@choice-assistant/domain/preference/garnish/garnish';
-import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
+import { SimpleChoiceConfig } from '@choice-assistant/infra/ui/choice-picker/choice-picker.component';
 
 export const GARNISH_ICON_MAP = new Map<Garnish, string>([
   [Garnish.NONE, 'images/garnish/none.png'],

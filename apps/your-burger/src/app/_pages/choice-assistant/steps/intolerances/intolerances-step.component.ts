@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/choice-picker/choice-picker.component';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
 import { Intolerances } from '@choice-assistant/domain/preference/intolerances/intolerances';
 import { INTOLERANCES_CHOICE_CONFIG } from './adapter';
