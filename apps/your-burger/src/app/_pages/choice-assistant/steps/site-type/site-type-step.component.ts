@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CustomerPreferencesState } from '@choice-assistant/domain/preference/customer-preferences-state';
-import { ChoicePickerComponent } from '@choice-assistant/infra/ui/multi-choice-picker/choice-picker.component';
 import { SiteType } from '@choice-assistant/domain/preference/site-type/site-type';
 import { SITE_TYPE_CHOICE_CONFIG } from './adapter';
 import { UiChoice } from '@choice-assistant/infra/ui/ui-choice';
+import { ChoicePickerComponent } from '@choice-assistant/infra/ui/choice-picker/choice-picker.component';
 
 @Component({
   selector: 'app-site-type-step',
