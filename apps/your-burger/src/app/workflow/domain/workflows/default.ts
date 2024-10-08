@@ -23,14 +23,17 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: BurgerType.CLASSIC,
                 displayText: 'burgerType.classic',
+                description: 'burgerType.classic.description',
               },
               {
                 value: BurgerType.SMASH,
                 displayText: 'burgerType.smash',
+                description: 'burgerType.smash.description',
               },
               {
                 value: BurgerType.VEGAN,
                 displayText: 'burgerType.vegan',
+                description: 'burgerType.vegan.description',
               },
             ],
           },
@@ -48,14 +51,17 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: Delivery.IN_SITE,
                 displayText: 'delivery.inSite',
+                description: 'delivery.inSite.description',
               },
               {
                 value: Delivery.PICK_UP,
                 displayText: 'delivery.pickUp',
+                description: 'delivery.pickUp.description',
               },
               {
                 value: Delivery.DELIVERY,
                 displayText: 'delivery.delivery',
+                description: 'delivery.delivery.description',
               },
             ],
           },
@@ -73,14 +79,17 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: Pricing.LOW_COST,
                 displayText: 'pricing.lowCost',
+                description: 'pricing.lowCost.description',
               },
               {
                 value: Pricing.REGULAR,
                 displayText: 'pricing.regular',
+                description: 'pricing.regular.description',
               },
               {
                 value: Pricing.EXPENSIVE,
                 displayText: 'pricing.expensive',
+                description: 'pricing.expensive.description',
               },
             ],
           },
@@ -98,10 +107,12 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: SiteType.COOL_SITES,
                 displayText: 'siteType.coolSites',
+                description: 'siteType.coolSites.description',
               },
               {
                 value: SiteType.FAST_FOOD,
                 displayText: 'siteType.fastFood',
+                description: 'siteType.fastFood.description',
               },
             ],
           },
@@ -119,18 +130,22 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: Intolerances.NONE,
                 displayText: 'intolerances.none',
+                description: 'intolerances.none.description',
               },
               {
                 value: Intolerances.GLUTEN,
                 displayText: 'intolerances.gluten',
+                description: 'intolerances.gluten.description',
               },
               {
                 value: Intolerances.LACTOSE,
                 displayText: 'intolerances.lactose',
+                description: 'intolerances.lactose.description',
               },
               {
                 value: Intolerances.OTHERS,
                 displayText: 'intolerances.others',
+                description: 'intolerances.others.description',
               },
             ],
           },
@@ -148,18 +163,22 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: Highlights.NONE,
                 displayText: 'highlights.none',
+                description: 'highlights.none.description',
               },
               {
                 value: Highlights.CHEESE,
                 displayText: 'highlights.cheese',
+                description: 'highlights.cheese.description',
               },
               {
                 value: Highlights.SAUCE,
                 displayText: 'highlights.sauce',
+                description: 'highlights.sauce.description',
               },
               {
                 value: Highlights.VEGETABLES,
                 displayText: 'highlights.vegetables',
+                description: 'highlights.vegetables.description',
               },
             ],
           },
@@ -177,22 +196,27 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: Garnish.NONE,
                 displayText: 'garnish.none',
+                description: 'garnish.none.description',
               },
               {
                 value: Garnish.REGULAR_POTATOES,
                 displayText: 'garnish.regularPotatoes',
+                description: 'garnish.regularPotatoes.description',
               },
               {
                 value: Garnish.WEDGES_POTATOES,
                 displayText: 'garnish.wedgesPotatoes',
+                description: 'garnish.wedgesPotatoes.description',
               },
               {
                 value: Garnish.SWEET_POTATOES,
                 displayText: 'garnish.sweetPotatoes',
+                description: 'garnish.sweetPotatoes.description',
               },
               {
                 value: Garnish.SALAD,
                 displayText: 'garnish.salad',
+                description: 'garnish.salad.description',
               },
             ],
           },
@@ -210,10 +234,12 @@ export const DEFAULT_WORKFLOW: Workflow = {
               {
                 value: Mode.PREFERENCE,
                 displayText: 'mode.preference',
+                description: 'mode.preference.description',
               },
               {
                 value: Mode.TRY_OUT,
                 displayText: 'mode.tryOut',
+                description: 'mode.tryOut.description',
               },
             ],
           },

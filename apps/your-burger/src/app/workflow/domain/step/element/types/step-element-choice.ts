@@ -8,4 +8,5 @@ export interface StepElementChoice {
 interface StepElementChoiceOption {
   value: string;
   displayText: string;
+  description: string;
 }

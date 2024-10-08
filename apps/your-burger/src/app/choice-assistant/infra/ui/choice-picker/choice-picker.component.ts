@@ -1,12 +1,14 @@
 import { Component, input, output, model, OnInit } from '@angular/core';
 import { UiChoice } from '../ui-choice';
+import { ChoicePickerController } from './strategies/choice-picker-controller';
+import { ChoicePickerFactory } from './strategies/factory';
 
 export interface SimpleChoiceConfig {
   choices: UiChoice[];
   default: string;
 }
 
-type SimpleChoiceMode = 'SINGLE' | 'MULTI';
+export type ChoicePickerMode = 'SINGLE' | 'MULTI';
 
 @Component({
   selector: 'app-choice-picker',
@@ -19,27 +21,21 @@ export class ChoicePickerComponent implements OnInit {
   title = input.required<string>();
   config = input.required<SimpleChoiceConfig>();
   value = input.required<string[]>();
-  mode = input<SimpleChoiceMode>('SINGLE');
+  mode = input<ChoicePickerMode>('SINGLE');
+  controller!: ChoicePickerController;
 
   choiceChanged = output<UiChoice>();
 
   choicesPicked = model<Set<UiChoice>>(new Set());
 
   ngOnInit(): void {
-    if (this.mode() === 'MULTI') {
-      for (const choice of this.value()) {
-        const simpleChoice = this.config().choices.find(
-          (c) => c.value === choice
-        )!;
-        this.toggleChoice(simpleChoice);
-      }
-    } else if (this.mode() === 'SINGLE') {
-      const choice = this.value()[0];
+    this.controller = ChoicePickerFactory.build(this.mode());
+    this.value().forEach((choice) => {
       const simpleChoice = this.config().choices.find(
         (c) => c.value === choice
       )!;
       this.toggleChoice(simpleChoice);
-    }
+    });
   }
 
   pickChoice(choice: UiChoice) {
@@ -48,20 +44,8 @@ export class ChoicePickerComponent implements OnInit {
   }
 
   private toggleChoice(choice: UiChoice) {
-    if (this.mode() === 'MULTI') {
-      this.choicesPicked.update((choices) => {
-        if (choices.has(choice)) {
-          choices.delete(choice);
-          return choices;
-        }
-        return choices?.add(choice);
-      });
-    } else if (this.mode() === 'SINGLE') {
-      this.choicesPicked.update((choices) => {
-        choices.clear();
-        return choices?.add(choice);
-      });
-    }
+    const value = this.controller.pick(this.choicesPicked(), choice);
+    this.choicesPicked.set(value);
   }
 
   isPicked(choice: UiChoice) {
