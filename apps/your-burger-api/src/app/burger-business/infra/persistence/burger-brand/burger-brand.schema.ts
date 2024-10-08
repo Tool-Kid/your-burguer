@@ -8,6 +8,7 @@ export const BurgerBrandSchema = new EntitySchema<BurgerBrand>({
   properties: {
     id: { type: 'int', primary: true, autoincrement: true },
     name: { type: 'string', nullable: false, unique: true },
+    slug: { type: 'string', nullable: false, unique: true },
     burgerPlace: {
       kind: '1:m',
       entity: () => BurgerPlace,

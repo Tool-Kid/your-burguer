@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "BEEF_PATTY",
+    "i18n_key": "ingredient.beefPatty"
+  },
+  {
+    "id": 2,
+    "name": "CHICKEN_PATTY",
+    "i18n_key": "ingredient.chickenPatty"
+  },
+  {
+    "id": 3,
+    "name": "LETTUCE",
+    "i18n_key": "ingredient.lettuce"
+  },
+  {
+    "id": 4,
+    "name": "TOMATO",
+    "i18n_key": "ingredient.tomato"
+  },
+  {
+    "id": 5,
+    "name": "ONION",
+    "i18n_key": "ingredient.onion"
+  }
+]
