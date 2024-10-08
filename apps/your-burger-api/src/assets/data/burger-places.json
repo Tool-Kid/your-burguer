@@ -1,0 +1,10 @@
+[
+  {
+    "brand": "goiko-grill",
+    "geo": {
+      "street": "C/ de la Esperanza",
+      "latitude": 12345,
+      "lonfitude": 12345
+    }
+  }
+]

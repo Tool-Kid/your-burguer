@@ -9,6 +9,8 @@ export const BurgerPlaceSchema = new EntitySchema<BurgerPlace>({
   tableName: 'burger_places',
   properties: {
     id: { type: 'uuid', primary: true, autoincrement: true },
+    name: { type: 'string' },
+    slug: { type: 'string', unique: true },
     brand: {
       kind: 'm:1',
       entity: () => BurgerBrand,
