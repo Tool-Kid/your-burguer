@@ -22,9 +22,9 @@ const DEFAULT_WORKFLOW_STATE_PROPS: WorkflowStateProps = {
     step: DEFAULT_WORKFLOW.steps[0],
     index: 0,
     hasNext: true,
-    canGoNext: false,
+    canGoNext: true,
     hasPrevious: false,
-    canGoPrevious: false,
+    canGoPrevious: true,
     progress: 0,
   },
 };
