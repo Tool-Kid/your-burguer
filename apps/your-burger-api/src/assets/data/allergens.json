@@ -1,27 +1,72 @@
 [
-  {
-    "id": 1,
-    "name": "GLUTEN",
-    "i18n_key": "allergen.gluten"
-  },
-  {
-    "id": 2,
-    "name": "CRUSTACEANS",
-    "i18n_key": "allergen.crustaceans"
-  },
-  {
-    "id": 3,
-    "name": "EGGS",
-    "i18n_key": "allergen.eggs"
-  },
-  {
-    "id": 4,
-    "name": "FISH",
-    "i18n_key": "allergen.fish"
-  },
-  {
-    "id": 5,
-    "name": "PEANUTS",
-    "i18n_key": "allergen.peanuts"
-  }
+    {
+        "id":1,
+        "name":"GLUTEN",
+        "i18n_key":"allergen.gluten"
+    },
+    {
+        "id":2,
+        "name":"CRUSTACEANS",
+        "i18n_key":"allergen.crustaceans"
+    },
+    {
+        "id":3,
+        "name":"EGGS",
+        "i18n_key":"allergen.eggs"
+    },
+    {
+        "id":4,
+        "name":"FISH",
+        "i18n_key":"allergen.fish"
+    },
+    {
+        "id":5,
+        "name":"PEANUTS",
+        "i18n_key":"allergen.peanuts"
+    },
+    {
+        "id":6,
+        "name":"SOYBEANS",
+        "i18n_key":"allergen.soybeans"
+    },
+    {
+        "id":7,
+        "name":"MILK",
+        "i18n_key":"allergen.milk"
+    },
+    {
+        "id":8,
+        "name":"NUTS",
+        "i18n_key":"allergen.nuts"
+    },
+    {
+        "id":9,
+        "name":"CELERY",
+        "i18n_key":"allergen.celery"
+    },
+    {
+        "id":10,
+        "name":"MUSTARD",
+        "i18n_key":"allergen.mustard"
+    },
+    {
+        "id":11,
+        "name":"SESAME",
+        "i18n_key":"allergen.sesame"
+    },
+    {
+        "id":12,
+        "name":"SULPHUR_DIOXIDE",
+        "i18n_key":"allergen.sulphurDioxide"
+    },
+    {
+        "id":13,
+        "name":"LUPIN",
+        "i18n_key":"allergen.lupin"
+    },
+    {
+        "id":14,
+        "name":"MOLLUSCS",
+        "i18n_key":"allergen.molluscs"
+    }
 ]

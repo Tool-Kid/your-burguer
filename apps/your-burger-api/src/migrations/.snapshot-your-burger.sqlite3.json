@@ -125,14 +125,13 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "numeric(10,0)",
+          "type": "integer",
           "unsigned": false,
           "autoincrement": true,
-          "primary": false,
+          "primary": true,
           "nullable": false,
-          "precision": 10,
-          "scale": 0,
-          "mappedType": "decimal"
+          "length": null,
+          "mappedType": "integer"
         },
         "street": {
           "name": "street",
@@ -238,14 +237,13 @@
         },
         "geo_id": {
           "name": "geo_id",
-          "type": "numeric(10,0)",
+          "type": "integer",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
           "nullable": false,
-          "precision": 10,
-          "scale": 0,
-          "mappedType": "decimal"
+          "length": null,
+          "mappedType": "integer"
         }
       },
       "name": "burger_places",

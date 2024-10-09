@@ -1,5 +1,5 @@
 import { EntityManager } from '@mikro-orm/core';
-import { readFileSync } from 'fs';
+import { readJson } from './_utils/read-json';
 
 export async function seedEntities<T>(
   em: EntityManager,
@@ -11,7 +11,7 @@ export async function seedEntities<T>(
   const entities: Partial<T>[] = [];
 
   return new Promise((resolve, reject) => {
-    const data = JSON.parse(readFileSync(jsonPath, 'utf8')) as unknown[];
+    const data = readJson(jsonPath);
     for (const entry of data) {
       const entity = em.create(EntityClass, mapRowToEntity(entry));
       entities.push(entity);

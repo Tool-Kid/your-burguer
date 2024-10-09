@@ -1,6 +1,6 @@
 import { Migration } from '@mikro-orm/migrations';
 
-export class Migration20241008172531 extends Migration {
+export class Migration20241009073801 extends Migration {
 
   override async up(): Promise<void> {
     this.addSql(`create table \`allergens\` (\`id\` integer not null primary key autoincrement, \`name\` text not null, \`i18n_key\` text not null);`);
@@ -9,10 +9,10 @@ export class Migration20241008172531 extends Migration {
     this.addSql(`create unique index \`burger_brands_name_unique\` on \`burger_brands\` (\`name\`);`);
     this.addSql(`create unique index \`burger_brands_slug_unique\` on \`burger_brands\` (\`slug\`);`);
 
-    this.addSql(`create table \`geopoints\` (\`id\` numeric(10,0) not null, \`street\` text not null, \`latitude\` numeric(10,0) not null, \`longitude\` numeric(10,0) not null, primary key (\`id\`));`);
+    this.addSql(`create table \`geopoints\` (\`id\` integer not null primary key autoincrement, \`street\` text not null, \`latitude\` numeric(10,0) not null, \`longitude\` numeric(10,0) not null);`);
     this.addSql(`create unique index \`geopoints_street_unique\` on \`geopoints\` (\`street\`);`);
 
-    this.addSql(`create table \`burger_places\` (\`id\` text not null, \`name\` text not null, \`slug\` text not null, \`brand_id\` integer not null, \`geo_id\` numeric(10,0) not null, constraint \`burger_places_brand_id_foreign\` foreign key(\`brand_id\`) references \`burger_brands\`(\`id\`) on update cascade, constraint \`burger_places_geo_id_foreign\` foreign key(\`geo_id\`) references \`geopoints\`(\`id\`) on update cascade, primary key (\`id\`));`);
+    this.addSql(`create table \`burger_places\` (\`id\` text not null, \`name\` text not null, \`slug\` text not null, \`brand_id\` integer not null, \`geo_id\` integer not null, constraint \`burger_places_brand_id_foreign\` foreign key(\`brand_id\`) references \`burger_brands\`(\`id\`) on update cascade, constraint \`burger_places_geo_id_foreign\` foreign key(\`geo_id\`) references \`geopoints\`(\`id\`) on update cascade, primary key (\`id\`));`);
     this.addSql(`create unique index \`burger_places_slug_unique\` on \`burger_places\` (\`slug\`);`);
     this.addSql(`create index \`burger_places_brand_id_index\` on \`burger_places\` (\`brand_id\`);`);
     this.addSql(`create unique index \`burger_places_geo_id_unique\` on \`burger_places\` (\`geo_id\`);`);
