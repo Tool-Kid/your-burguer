@@ -5,6 +5,15 @@
       "street": "C/ de la Esperanza",
       "latitude": 12345,
       "lonfitude": 12345
-    }
+    },
+    "burgers": [
+      {
+        "name": "La Muslona",
+        "description": "Contramuslo de pollo jugoso y crujiente de 170g, queso americano, bacon, lechuga batavia y salsa 50 Burger Spread.",
+        "type": "CHICKEN",
+        "ingredients": ["BRIOCHE_BUN", "AMERICAN_CHEESE", "BACON", "LETTUCE"],
+        "allergens": []
+      }
+    ]
   }
 ]

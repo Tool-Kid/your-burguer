@@ -7,6 +7,9 @@ import { GeoPoint } from '../../app/burger-business/domain/burger-place/geo-poin
 import { readJson } from '../_utils/read-json';
 import { slugify } from '../_utils/slugify';
 import { uuid } from '../_utils/uuid';
+import { Burger } from '../../app/burger-business/domain/burger';
+import { Allergen } from '../../app/burger-business/domain/allergen/allergen';
+import { Ingredient } from '../../app/burger-business/domain/ingredient/ingredient';
 
 export class BurgerPlacesDatabaseSeeder extends DatabaseSeeder<BurgerPlace> {
   constructor(em: EntityManager) {
@@ -18,33 +21,65 @@ export class BurgerPlacesDatabaseSeeder extends DatabaseSeeder<BurgerPlace> {
   }
 
   async seed(): Promise<void> {
-    const burgerBrandRepository = this.entityManager.getRepository(BurgerBrand);
-    const geoPointRepository = this.entityManager.getRepository(GeoPoint);
-    const burgerPlaceRepository = this.entityManager.getRepository(BurgerPlace);
+    const burgerBrandsRepository =
+      this.entityManager.getRepository(BurgerBrand);
+    const geoPointsRepository = this.entityManager.getRepository(GeoPoint);
+    const burgerPlacesRepository =
+      this.entityManager.getRepository(BurgerPlace);
+    const burgersRepository = this.entityManager.getRepository(Burger);
+    const allergensRepository = this.entityManager.getRepository(Allergen);
+    const ingredientsRepository = this.entityManager.getRepository(Ingredient);
 
     const burgerPlaces: BurgerPlace[] = [];
 
     const entities = readJson(this.sourcePath) as any[];
 
     for (const entity of entities) {
-      const geoPoint = geoPointRepository.create({
+      const geo = geoPointsRepository.create({
         latitude: entity.geo.latitude,
         longitude: entity.geo.latitude,
         street: entity.geo.street,
       });
 
-      const burgerBrand = await burgerBrandRepository.findOne({
+      const brand = await burgerBrandsRepository.findOne({
         slug: entity.brand,
       });
 
-      const burgerPlaceName = `${burgerBrand.name} - ${geoPoint.street}`;
-      const burgerPlace = burgerPlaceRepository.create({
+      const burgers: Burger[] = [];
+
+      for (const burgerRaw of entity.burgers) {
+        const ingredients = ingredientsRepository.find({
+          name: {
+            $in: burgerRaw.ingredients,
+          },
+        });
+
+        const allergens = allergensRepository.find({
+          name: {
+            $in: burgerRaw.ingredients,
+          },
+        });
+
+        const burger = burgersRepository.create({
+          id: uuid(),
+          type: burgerRaw.type,
+          name: burgerRaw.name,
+          description: burgerRaw.description,
+          allergens,
+          ingredients,
+        });
+
+        burgers.push(burger);
+      }
+
+      const burgerPlaceName = `${brand.name} - ${geo.street}`;
+      const burgerPlace = burgerPlacesRepository.create({
         id: uuid(),
         name: burgerPlaceName,
         slug: slugify(burgerPlaceName),
-        brand: burgerBrand,
-        burgers: [],
-        geo: geoPoint,
+        brand,
+        burgers,
+        geo,
       });
 
       burgerPlaces.push(burgerPlace);
@@ -56,7 +91,5 @@ export class BurgerPlacesDatabaseSeeder extends DatabaseSeeder<BurgerPlace> {
     } catch (err) {
       console.error(`Error seeding ${this.entityClass.name}s:`, err);
     }
-
-    this.entityManager.persistAndFlush(burgerPlaces);
   }
 }

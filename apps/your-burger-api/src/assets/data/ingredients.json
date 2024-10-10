@@ -1,272 +1,326 @@
 [
-    {
-        "id":1,
-        "name":"BEEF_PATTY",
-        "i18n_key":"ingredient.beefPatty"
-    },
-    {
-        "id":2,
-        "name":"CHICKEN_PATTY",
-        "i18n_key":"ingredient.chickenPatty"
-    },
-    {
-        "id":3,
-        "name":"VEGGIE_PATTY",
-        "i18n_key":"ingredient.veggiePatty"
-    },
-    {
-        "id":4,
-        "name":"LETTUCE",
-        "i18n_key":"ingredient.lettuce"
-    },
-    {
-        "id":5,
-        "name":"TOMATO",
-        "i18n_key":"ingredient.tomato"
-    },
-    {
-        "id":6,
-        "name":"ONION",
-        "i18n_key":"ingredient.onion"
-    },
-    {
-        "id":7,
-        "name":"PICKLES",
-        "i18n_key":"ingredient.pickles"
-    },
-    {
-        "id":8,
-        "name":"CHEESE",
-        "i18n_key":"ingredient.cheese"
-    },
-    {
-        "id":9,
-        "name":"BACON",
-        "i18n_key":"ingredient.bacon"
-    },
-    {
-        "id":10,
-        "name":"AVOCADO",
-        "i18n_key":"ingredient.avocado"
-    },
-    {
-        "id":11,
-        "name":"KETCHUP",
-        "i18n_key":"ingredient.ketchup"
-    },
-    {
-        "id":12,
-        "name":"MUSTARD",
-        "i18n_key":"ingredient.mustard"
-    },
-    {
-        "id":13,
-        "name":"MAYONNAISE",
-        "i18n_key":"ingredient.mayonnaise"
-    },
-    {
-        "id":14,
-        "name":"BBQ_SAUCE",
-        "i18n_key":"ingredient.bbqSauce"
-    },
-    {
-        "id":15,
-        "name":"RELISH",
-        "i18n_key":"ingredient.relish"
-    },
-    {
-        "id":16,
-        "name":"MUSHROOMS",
-        "i18n_key":"ingredient.mushrooms"
-    },
-    {
-        "id":17,
-        "name":"JALAPE\u00d1OS",
-        "i18n_key":"ingredient.jalape\u00f1os"
-    },
-    {
-        "id":18,
-        "name":"FRIED_EGG",
-        "i18n_key":"ingredient.friedEgg"
-    },
-    {
-        "id":19,
-        "name":"CHILI",
-        "i18n_key":"ingredient.chili"
-    },
-    {
-        "id":20,
-        "name":"SPINACH",
-        "i18n_key":"ingredient.spinach"
-    },
-    {
-        "id":21,
-        "name":"CUCUMBER",
-        "i18n_key":"ingredient.cucumber"
-    },
-    {
-        "id":22,
-        "name":"BELL_PEPPER",
-        "i18n_key":"ingredient.bellPepper"
-    },
-    {
-        "id":23,
-        "name":"OLIVES",
-        "i18n_key":"ingredient.olives"
-    },
-    {
-        "id":24,
-        "name":"GARLIC",
-        "i18n_key":"ingredient.garlic"
-    },
-    {
-        "id":25,
-        "name":"PINEAPPLE",
-        "i18n_key":"ingredient.pineapple"
-    },
-    {
-        "id":26,
-        "name":"SRIRACHA",
-        "i18n_key":"ingredient.sriracha"
-    },
-    {
-        "id":27,
-        "name":"CHIPOTLE_MAYO",
-        "i18n_key":"ingredient.chipotleMayo"
-    },
-    {
-        "id":28,
-        "name":"HONEY_MUSTARD",
-        "i18n_key":"ingredient.honeyMustard"
-    },
-    {
-        "id":29,
-        "name":"RANCH_DRESSING",
-        "i18n_key":"ingredient.ranchDressing"
-    },
-    {
-        "id":30,
-        "name":"THOUSAND_ISLAND_DRESSING",
-        "i18n_key":"ingredient.thousandIslandDressing"
-    },
-    {
-        "id":31,
-        "name":"BLUE_CHEESE",
-        "i18n_key":"ingredient.blueCheese"
-    },
-    {
-        "id":32,
-        "name":"SWISS_CHEESE",
-        "i18n_key":"ingredient.swissCheese"
-    },
-    {
-        "id":33,
-        "name":"CHEDDAR_CHEESE",
-        "i18n_key":"ingredient.cheddarCheese"
-    },
-    {
-        "id":34,
-        "name":"MONTEREY_JACK_CHEESE",
-        "i18n_key":"ingredient.montereyJackCheese"
-    },
-    {
-        "id":35,
-        "name":"AMERICAN_CHEESE",
-        "i18n_key":"ingredient.americanCheese"
-    },
-    {
-        "id":36,
-        "name":"PROVOLONE_CHEESE",
-        "i18n_key":"ingredient.provoloneCheese"
-    },
-    {
-        "id":37,
-        "name":"PEPPER_JACK_CHEESE",
-        "i18n_key":"ingredient.pepperJackCheese"
-    },
-    {
-        "id":38,
-        "name":"BRIOCHE_BUN",
-        "i18n_key":"ingredient.briocheBun"
-    },
-    {
-        "id":39,
-        "name":"SESAME_BUN",
-        "i18n_key":"ingredient.sesameBun"
-    },
-    {
-        "id":40,
-        "name":"WHOLE_WHEAT_BUN",
-        "i18n_key":"ingredient.wholeWheatBun"
-    },
-    {
-        "id":41,
-        "name":"GLUTEN_FREE_BUN",
-        "i18n_key":"ingredient.gluten-FreeBun"
-    },
-    {
-        "id":42,
-        "name":"BALSAMIC_GLAZE",
-        "i18n_key":"ingredient.balsamicGlaze"
-    },
-    {
-        "id":43,
-        "name":"TRUFFLE_OIL",
-        "i18n_key":"ingredient.truffleOil"
-    },
-    {
-        "id":44,
-        "name":"ARUGULA",
-        "i18n_key":"ingredient.arugula"
-    },
-    {
-        "id":45,
-        "name":"KIMCHI",
-        "i18n_key":"ingredient.kimchi"
-    },
-    {
-        "id":46,
-        "name":"COLESLAW",
-        "i18n_key":"ingredient.coleslaw"
-    },
-    {
-        "id":47,
-        "name":"PESTO",
-        "i18n_key":"ingredient.pesto"
-    },
-    {
-        "id":48,
-        "name":"RED_ONION",
-        "i18n_key":"ingredient.redOnion"
-    },
-    {
-        "id":49,
-        "name":"CARAMELIZED_ONIONS",
-        "i18n_key":"ingredient.caramelizedOnions"
-    },
-    {
-        "id":50,
-        "name":"SUN_DRIED_TOMATOES",
-        "i18n_key":"ingredient.sun-DriedTomatoes"
-    },
-    {
-        "id":51,
-        "name":"GUACAMOLE",
-        "i18n_key":"ingredient.guacamole"
-    },
-    {
-        "id":52,
-        "name":"BUFFALO_SAUCE",
-        "i18n_key":"ingredient.buffaloSauce"
-    },
-    {
-        "id":53,
-        "name":"SWEET_CHILI_SAUCE",
-        "i18n_key":"ingredient.sweetChiliSauce"
-    },
-    {
-        "id":54,
-        "name":"AIOLI",
-        "i18n_key":"ingredient.aioli"
-    }
+  {
+    "id": 1,
+    "name": "BEEF_PATTY",
+    "i18nKey": "ingredient.beefPatty",
+    "category": "PROTEIN"
+  },
+  {
+    "id": 2,
+    "name": "CHICKEN_PATTY",
+    "i18nKey": "ingredient.chickenPatty",
+    "category": "PROTEIN"
+  },
+  {
+    "id": 3,
+    "name": "VEGGIE_PATTY",
+    "i18nKey": "ingredient.veggiePatty",
+    "category": "PROTEIN"
+  },
+  {
+    "id": 4,
+    "name": "LETTUCE",
+    "i18nKey": "ingredient.lettuce",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 5,
+    "name": "TOMATO",
+    "i18nKey": "ingredient.tomato",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 6,
+    "name": "ONION",
+    "i18nKey": "ingredient.onion",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 7,
+    "name": "PICKLES",
+    "i18nKey": "ingredient.pickles",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 8,
+    "name": "CHEESE",
+    "i18nKey": "ingredient.cheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 9,
+    "name": "BACON",
+    "i18nKey": "ingredient.bacon",
+    "category": "TOPPING"
+  },
+  {
+    "id": 10,
+    "name": "AVOCADO",
+    "i18nKey": "ingredient.avocado",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 11,
+    "name": "KETCHUP",
+    "i18nKey": "ingredient.ketchup",
+    "category": "SAUCE"
+  },
+  {
+    "id": 12,
+    "name": "MUSTARD",
+    "i18nKey": "ingredient.mustard",
+    "category": "SAUCE"
+  },
+  {
+    "id": 13,
+    "name": "MAYONNAISE",
+    "i18nKey": "ingredient.mayonnaise",
+    "category": "SAUCE"
+  },
+  {
+    "id": 14,
+    "name": "BBQ_SAUCE",
+    "i18nKey": "ingredient.bbqSauce",
+    "category": "SAUCE"
+  },
+  {
+    "id": 15,
+    "name": "RELISH",
+    "i18nKey": "ingredient.relish",
+    "category": "SAUCE"
+  },
+  {
+    "id": 16,
+    "name": "MUSHROOMS",
+    "i18nKey": "ingredient.mushrooms",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 17,
+    "name": "JALAPEÑOS",
+    "i18nKey": "ingredient.jalapeños",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 18,
+    "name": "FRIED_EGG",
+    "i18nKey": "ingredient.friedEgg",
+    "category": "TOPPING"
+  },
+  {
+    "id": 19,
+    "name": "CHILI",
+    "i18nKey": "ingredient.chili",
+    "category": "TOPPING"
+  },
+  {
+    "id": 20,
+    "name": "SPINACH",
+    "i18nKey": "ingredient.spinach",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 21,
+    "name": "CUCUMBER",
+    "i18nKey": "ingredient.cucumber",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 22,
+    "name": "BELL_PEPPER",
+    "i18nKey": "ingredient.bellPepper",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 23,
+    "name": "OLIVES",
+    "i18nKey": "ingredient.olives",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 24,
+    "name": "GARLIC",
+    "i18nKey": "ingredient.garlic",
+    "category": "TOPPING"
+  },
+  {
+    "id": 25,
+    "name": "PINEAPPLE",
+    "i18nKey": "ingredient.pineapple",
+    "category": "TOPPING"
+  },
+  {
+    "id": 26,
+    "name": "SRIRACHA",
+    "i18nKey": "ingredient.sriracha",
+    "category": "SAUCE"
+  },
+  {
+    "id": 27,
+    "name": "CHIPOTLE_MAYO",
+    "i18nKey": "ingredient.chipotleMayo",
+    "category": "SAUCE"
+  },
+  {
+    "id": 28,
+    "name": "HONEY_MUSTARD",
+    "i18nKey": "ingredient.honeyMustard",
+    "category": "SAUCE"
+  },
+  {
+    "id": 29,
+    "name": "RANCH_DRESSING",
+    "i18nKey": "ingredient.ranchDressing",
+    "category": "SAUCE"
+  },
+  {
+    "id": 30,
+    "name": "THOUSAND_ISLAND_DRESSING",
+    "i18nKey": "ingredient.thousandIslandDressing",
+    "category": "SAUCE"
+  },
+  {
+    "id": 31,
+    "name": "BLUE_CHEESE",
+    "i18nKey": "ingredient.blueCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 32,
+    "name": "SWISS_CHEESE",
+    "i18nKey": "ingredient.swissCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 33,
+    "name": "CHEDDAR_CHEESE",
+    "i18nKey": "ingredient.cheddarCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 34,
+    "name": "MONTEREY_JACK_CHEESE",
+    "i18nKey": "ingredient.montereyJackCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 35,
+    "name": "AMERICAN_CHEESE",
+    "i18nKey": "ingredient.americanCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 36,
+    "name": "PROVOLONE_CHEESE",
+    "i18nKey": "ingredient.provoloneCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 37,
+    "name": "PEPPER_JACK_CHEESE",
+    "i18nKey": "ingredient.pepperJackCheese",
+    "category": "CHEESE"
+  },
+  {
+    "id": 38,
+    "name": "BRIOCHE_BUN",
+    "i18nKey": "ingredient.briocheBun",
+    "category": "BUN"
+  },
+  {
+    "id": 39,
+    "name": "SESAME_BUN",
+    "i18nKey": "ingredient.sesameBun",
+    "category": "BUN"
+  },
+  {
+    "id": 40,
+    "name": "WHOLE_WHEAT_BUN",
+    "i18nKey": "ingredient.wholeWheatBun",
+    "category": "BUN"
+  },
+  {
+    "id": 41,
+    "name": "GLUTEN_FREE_BUN",
+    "i18nKey": "ingredient.gluten-FreeBun",
+    "category": "BUN"
+  },
+  {
+    "id": 42,
+    "name": "BALSAMIC_GLAZE",
+    "i18nKey": "ingredient.balsamicGlaze",
+    "category": "SAUCE"
+  },
+  {
+    "id": 43,
+    "name": "TRUFFLE_OIL",
+    "i18nKey": "ingredient.truffleOil",
+    "category": "SAUCE"
+  },
+  {
+    "id": 44,
+    "name": "ARUGULA",
+    "i18nKey": "ingredient.arugula",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 45,
+    "name": "KIMCHI",
+    "i18nKey": "ingredient.kimchi",
+    "category": "TOPPING"
+  },
+  {
+    "id": 46,
+    "name": "COLESLAW",
+    "i18nKey": "ingredient.coleslaw",
+    "category": "TOPPING"
+  },
+  {
+    "id": 47,
+    "name": "PESTO",
+    "i18nKey": "ingredient.pesto",
+    "category": "SAUCE"
+  },
+  {
+    "id": 48,
+    "name": "RED_ONION",
+    "i18nKey": "ingredient.redOnion",
+    "category": "VEGETABLE"
+  },
+  {
+    "id": 49,
+    "name": "CARAMELIZED_ONIONS",
+    "i18nKey": "ingredient.caramelizedOnions",
+    "category": "TOPPING"
+  },
+  {
+    "id": 50,
+    "name": "SUN_DRIED_TOMATOES",
+    "i18nKey": "ingredient.sunDriedTomatoes",
+    "category": "TOPPING"
+  },
+  {
+    "id": 51,
+    "name": "GUACAMOLE",
+    "i18nKey": "ingredient.guacamole",
+    "category": "TOPPING"
+  },
+  {
+    "id": 52,
+    "name": "BUFFALO_SAUCE",
+    "i18nKey": "ingredient.buffaloSauce",
+    "category": "SAUCE"
+  },
+  {
+    "id": 53,
+    "name": "SWEET_CHILI_SAUCE",
+    "i18nKey": "ingredient.sweetChiliSauce",
+    "category": "SAUCE"
+  },
+  {
+    "id": 54,
+    "name": "AIOLI",
+    "i18nKey": "ingredient.aioli",
+    "category": "SAUCE"
+  }
 ]

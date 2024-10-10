@@ -8,11 +8,13 @@ import { BurgerBrandSchema } from './app/burger-business/infra/persistence/burge
 import { BurgerPlaceSchema } from './app/burger-business/infra/persistence/burger-place/burger-place.schema';
 import { BurgerSchema } from './app/burger-business/infra/persistence/burger/burger.schema';
 import { GeoPointSchema } from './app/burger-business/infra/persistence/burger-place/geo-point.schema';
+import { IngredientCategorySchema } from './app/burger-business/infra/persistence/ingredient/ingredient-category.schema';
 
 const config: Options = {
   entities: [
     AllergenSchema,
     IngredientSchema,
+    IngredientCategorySchema,
     BurgerBrandSchema,
     BurgerPlaceSchema,
     BurgerSchema,

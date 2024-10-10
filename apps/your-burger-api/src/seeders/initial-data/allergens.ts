@@ -21,7 +21,7 @@ export class AllergensDatabaseSeeder extends DatabaseSeeder<Allergen> {
       (row) => ({
         id: Number(row.id),
         name: row.name,
-        i18nKey: row.i18n_key,
+        i18nKey: row.i18nKey,
       })
     );
   }

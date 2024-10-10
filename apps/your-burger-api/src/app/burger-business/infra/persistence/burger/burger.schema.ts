@@ -1,5 +1,5 @@
 import { EntitySchema } from '@mikro-orm/core';
-import { Burger } from '../../../domain/burger';
+import { Burger, BurgerType } from '../../../domain/burger';
 import { Allergen } from '../../../domain/allergen/allergen';
 import { BurgerPlace } from '../../../domain/burger-place/burger-place';
 import { Ingredient } from '../../../domain/ingredient/ingredient';
@@ -10,6 +10,8 @@ export const BurgerSchema = new EntitySchema<Burger>({
   properties: {
     id: { type: 'uuid', primary: true },
     name: { type: 'string', nullable: false, unique: true },
+    description: { type: 'string' },
+    type: { enum: true, items: () => BurgerType, nullable: false },
     ingredients: {
       kind: 'm:n',
       entity: () => Ingredient,

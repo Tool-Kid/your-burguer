@@ -340,6 +340,32 @@
           "length": null,
           "mappedType": "text"
         },
+        "description": {
+          "name": "description",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "enumItems": [
+            "CLASSIC",
+            "SMASH",
+            "CHICKEN",
+            "VEGAN"
+          ],
+          "mappedType": "enum"
+        },
         "place_id": {
           "name": "place_id",
           "type": "text",
@@ -522,7 +548,7 @@
           "mappedType": "text"
         }
       },
-      "name": "ingredients",
+      "name": "ingredient_categories",
       "indexes": [
         {
           "keyName": "primary",
@@ -537,6 +563,89 @@
       ],
       "checks": [],
       "foreignKeys": {},
+      "nativeEnums": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        },
+        "category_id": {
+          "name": "category_id",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
+        },
+        "i18n_key": {
+          "name": "i18n_key",
+          "type": "text",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "text"
+        }
+      },
+      "name": "ingredients",
+      "indexes": [
+        {
+          "columnNames": [
+            "category_id"
+          ],
+          "composite": false,
+          "keyName": "ingredients_category_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "keyName": "primary",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "ingredients_category_id_foreign": {
+          "constraintName": "ingredients_category_id_foreign",
+          "columnNames": [
+            "category_id"
+          ],
+          "localTableName": "ingredients",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "ingredient_categories",
+          "updateRule": "cascade"
+        }
+      },
       "nativeEnums": {}
     },
     {

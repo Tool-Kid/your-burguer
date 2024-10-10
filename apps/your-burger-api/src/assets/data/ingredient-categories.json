@@ -1,0 +1,30 @@
+[
+  {
+    "name": "PROTEIN",
+    "i18nKey": "ingredientCategory.protein"
+  },
+  {
+    "name": "VEGETABLE",
+    "i18nKey": "ingredientCategory.vegetable"
+  },
+  {
+    "name": "CONDIMENT",
+    "i18nKey": "ingredientCategory.condiment"
+  },
+  {
+    "name": "CHEESE",
+    "i18nKey": "ingredientCategory.cheese"
+  },
+  {
+    "name": "BUN",
+    "i18nKey": "ingredientCategory.bun"
+  },
+  {
+    "name": "TOPPING",
+    "i18nKey": "ingredientCategory.topping"
+  },
+  {
+    "name": "SAUCE",
+    "i18nKey": "ingredientCategory.sauce"
+  }
+]
