@@ -22,6 +22,18 @@
         }
       }
     },
+    "build": {
+      "options": {
+        "transformers": [
+          {
+            "name": "@nestjs/swagger/plugin",
+            "options": {
+              "introspectComments": true
+            }
+          }
+        ]
+      }
+    },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

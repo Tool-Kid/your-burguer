@@ -10,7 +10,9 @@ export class BurgersMikroOrmRepository implements BurgersRepository {
   constructor(private readonly em: EntityManager) {}
 
   async find(): Promise<Burger[]> {
-    return await this.repository.findAll();
+    return await this.repository.findAll({
+      populate: ['place', 'ingredients', 'allergens'],
+    });
   }
 
   async create(burger: Burger): Promise<Burger> {

@@ -14,12 +14,14 @@ import { BurgerPlacesMikroOrmRepository } from './infra/persistence/burger-place
 import { BurgersRepository } from './domain/burgers.repository';
 import { BurgersMikroOrmRepository } from './infra/persistence/burger/burgers-mikro-orm.repository';
 import { BurgersController } from './infra/http/burger/burgers.controller';
+import { IngredientCategoriesController } from './infra/http/ingredient/ingredient-categories.controller';
 
 @Module({
   controllers: [
     BurgersController,
     AllergensController,
     IngredientsController,
+    IngredientCategoriesController,
     BurgerPlacesController,
     BurgerBrandsController,
   ],
