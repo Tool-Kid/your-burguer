@@ -19,10 +19,10 @@ export async function seedEntities<T>(
 
     try {
       em.persistAndFlush(entities);
-      console.info(`${EntityClass.name}s seeded successfully`);
+      console.info(`${EntityClass.name} seeded successfully`);
       resolve();
     } catch (err) {
-      console.error(`Error seeding ${EntityClass.name}s:`, err);
+      console.error(`Error seeding ${EntityClass.name}:`, err);
       reject(err);
     }
   });

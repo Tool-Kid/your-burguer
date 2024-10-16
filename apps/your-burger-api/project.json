@@ -40,6 +40,18 @@
       "options": {
         "jestConfig": "apps/your-burger-api/jest.config.ts"
       }
+    },
+    "load-database": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/your-burger-api",
+        "commands": [
+          "npx mikro-orm migration:create",
+          "npx mikro-orm migration:up",
+          "npx mikro-orm seeder:run --class=InitialDataSeeder"
+        ],
+        "parallel": false
+      }
     }
   }
 }

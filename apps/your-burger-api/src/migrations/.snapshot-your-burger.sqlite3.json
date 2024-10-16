@@ -375,6 +375,16 @@
           "nullable": false,
           "length": 36,
           "mappedType": "text"
+        },
+        "brand_id": {
+          "name": "brand_id",
+          "type": "integer",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "integer"
         }
       },
       "name": "burgers",
@@ -395,6 +405,16 @@
           ],
           "composite": false,
           "keyName": "burgers_place_id_index",
+          "constraint": false,
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "brand_id"
+          ],
+          "composite": false,
+          "keyName": "burgers_brand_id_index",
           "constraint": false,
           "primary": false,
           "unique": false
@@ -422,6 +442,18 @@
             "id"
           ],
           "referencedTableName": "burger_places",
+          "updateRule": "cascade"
+        },
+        "burgers_brand_id_foreign": {
+          "constraintName": "burgers_brand_id_foreign",
+          "columnNames": [
+            "brand_id"
+          ],
+          "localTableName": "burgers",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "burger_brands",
           "updateRule": "cascade"
         }
       },

@@ -3,6 +3,7 @@ import { Burger, BurgerType } from '../../../domain/burger';
 import { Allergen } from '../../../domain/allergen/allergen';
 import { BurgerPlace } from '../../../domain/burger-place/burger-place';
 import { Ingredient } from '../../../domain/ingredient/ingredient';
+import { BurgerBrand } from '../../../domain/burger-brand/burger-brand';
 
 export const BurgerSchema = new EntitySchema<Burger>({
   class: Burger,
@@ -12,6 +13,16 @@ export const BurgerSchema = new EntitySchema<Burger>({
     name: { type: 'string', nullable: false, unique: true },
     description: { type: 'string' },
     type: { enum: true, items: () => BurgerType, nullable: false },
+    place: {
+      kind: 'm:1',
+      entity: () => BurgerPlace,
+      inversedBy: 'burgers',
+    },
+    brand: {
+      kind: 'm:1',
+      entity: () => BurgerBrand,
+      inversedBy: 'burger',
+    },
     ingredients: {
       kind: 'm:n',
       entity: () => Ingredient,
@@ -21,11 +32,6 @@ export const BurgerSchema = new EntitySchema<Burger>({
       kind: 'm:n',
       entity: () => Allergen,
       nullable: true,
-    },
-    place: {
-      kind: 'm:1',
-      entity: () => BurgerPlace,
-      inversedBy: 'burgers',
     },
   },
 });

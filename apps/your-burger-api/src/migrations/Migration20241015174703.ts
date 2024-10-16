@@ -1,6 +1,6 @@
 import { Migration } from '@mikro-orm/migrations';
 
-export class Migration20241009214546 extends Migration {
+export class Migration20241015174703 extends Migration {
 
   override async up(): Promise<void> {
     this.addSql(`create table \`allergens\` (\`id\` integer not null primary key autoincrement, \`name\` text not null, \`i18n_key\` text not null);`);
@@ -17,9 +17,10 @@ export class Migration20241009214546 extends Migration {
     this.addSql(`create index \`burger_places_brand_id_index\` on \`burger_places\` (\`brand_id\`);`);
     this.addSql(`create unique index \`burger_places_geo_id_unique\` on \`burger_places\` (\`geo_id\`);`);
 
-    this.addSql(`create table \`burgers\` (\`id\` text not null, \`name\` text not null, \`description\` text not null, \`type\` text check (\`type\` in ('CLASSIC', 'SMASH', 'CHICKEN', 'VEGAN')) not null, \`place_id\` text not null, constraint \`burgers_place_id_foreign\` foreign key(\`place_id\`) references \`burger_places\`(\`id\`) on update cascade, primary key (\`id\`));`);
+    this.addSql(`create table \`burgers\` (\`id\` text not null, \`name\` text not null, \`description\` text not null, \`type\` text check (\`type\` in ('CLASSIC', 'SMASH', 'CHICKEN', 'VEGAN')) not null, \`place_id\` text not null, \`brand_id\` integer not null, constraint \`burgers_place_id_foreign\` foreign key(\`place_id\`) references \`burger_places\`(\`id\`) on update cascade, constraint \`burgers_brand_id_foreign\` foreign key(\`brand_id\`) references \`burger_brands\`(\`id\`) on update cascade, primary key (\`id\`));`);
     this.addSql(`create unique index \`burgers_name_unique\` on \`burgers\` (\`name\`);`);
     this.addSql(`create index \`burgers_place_id_index\` on \`burgers\` (\`place_id\`);`);
+    this.addSql(`create index \`burgers_brand_id_index\` on \`burgers\` (\`brand_id\`);`);
 
     this.addSql(`create table \`burgers_allergens\` (\`burger_id\` text not null, \`allergen_id\` integer not null, constraint \`burgers_allergens_burger_id_foreign\` foreign key(\`burger_id\`) references \`burgers\`(\`id\`) on delete cascade on update cascade, constraint \`burgers_allergens_allergen_id_foreign\` foreign key(\`allergen_id\`) references \`allergens\`(\`id\`) on delete cascade on update cascade, primary key (\`burger_id\`, \`allergen_id\`));`);
     this.addSql(`create index \`burgers_allergens_burger_id_index\` on \`burgers_allergens\` (\`burger_id\`);`);

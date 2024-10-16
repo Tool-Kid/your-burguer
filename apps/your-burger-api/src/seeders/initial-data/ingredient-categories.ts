@@ -1,5 +1,4 @@
 import { EntityManager } from '@mikro-orm/core';
-import { Ingredient } from '../../app/burger-business/domain/ingredient/ingredient';
 import { DATA_FILES } from '../config';
 import { seedEntities } from '../seed-entities';
 import { DatabaseSeeder } from '../seeder';

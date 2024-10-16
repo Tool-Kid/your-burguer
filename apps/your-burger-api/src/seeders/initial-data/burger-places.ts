@@ -21,75 +21,87 @@ export class BurgerPlacesDatabaseSeeder extends DatabaseSeeder<BurgerPlace> {
   }
 
   async seed(): Promise<void> {
-    const burgerBrandsRepository =
-      this.entityManager.getRepository(BurgerBrand);
-    const geoPointsRepository = this.entityManager.getRepository(GeoPoint);
-    const burgerPlacesRepository =
-      this.entityManager.getRepository(BurgerPlace);
-    const burgersRepository = this.entityManager.getRepository(Burger);
-    const allergensRepository = this.entityManager.getRepository(Allergen);
-    const ingredientsRepository = this.entityManager.getRepository(Ingredient);
-
+    const entities = readJson(this.sourcePath) as any[];
     const burgerPlaces: BurgerPlace[] = [];
 
-    const entities = readJson(this.sourcePath) as any[];
-
     for (const entity of entities) {
-      const geo = geoPointsRepository.create({
-        latitude: entity.geo.latitude,
-        longitude: entity.geo.latitude,
-        street: entity.geo.street,
-      });
-
-      const brand = await burgerBrandsRepository.findOne({
-        slug: entity.brand,
-      });
-
-      const burgers: Burger[] = [];
-
-      for (const burgerRaw of entity.burgers) {
-        const ingredients = ingredientsRepository.find({
-          name: {
-            $in: burgerRaw.ingredients,
-          },
-        });
-
-        const allergens = allergensRepository.find({
-          name: {
-            $in: burgerRaw.ingredients,
-          },
-        });
-
-        const burger = burgersRepository.create({
-          id: uuid(),
-          type: burgerRaw.type,
-          name: burgerRaw.name,
-          description: burgerRaw.description,
-          allergens,
-          ingredients,
-        });
-
-        burgers.push(burger);
-      }
-
-      const burgerPlaceName = `${brand.name} - ${geo.street}`;
-      const burgerPlace = burgerPlacesRepository.create({
-        id: uuid(),
-        name: burgerPlaceName,
-        slug: slugify(burgerPlaceName),
-        brand,
-        burgers,
-        geo,
-      });
-
+      const burgerPlace = await this.getBurgerPlaces(entity);
       burgerPlaces.push(burgerPlace);
     }
 
     try {
       this.entityManager.persistAndFlush(burgerPlaces);
-      console.info(`${this.entityClass.name}s seeded successfully`);
+      console.info(`${this.entityClass.name} seeded successfully`);
     } catch (err) {
       console.error(`Error seeding ${this.entityClass.name}s:`, err);
     }
+  }
+
+  private async getBurgerPlaces(entity: any): Promise<BurgerPlace> {
+    const burgerBrandsRepository =
+      this.entityManager.getRepository(BurgerBrand);
+    const geoPointsRepository = this.entityManager.getRepository(GeoPoint);
+    const burgerPlacesRepository =
+      this.entityManager.getRepository(BurgerPlace);
+    const geo = geoPointsRepository.create({
+      latitude: entity.geo.latitude,
+      longitude: entity.geo.latitude,
+      street: entity.geo.street,
+    });
+
+    const brand = await burgerBrandsRepository.findOne({
+      slug: entity.brand,
+    });
+
+    const burgers = this.getBurgersForBurgerPlace(entity, brand);
+
+    const burgerPlaceName = `${brand.name} - ${geo.street}`;
+    const burgerPlace = burgerPlacesRepository.create({
+      id: uuid(),
+      name: burgerPlaceName,
+      slug: slugify(burgerPlaceName),
+      brand,
+      burgers,
+      geo,
+    });
+
+    return burgerPlace;
+  }
+
+  private getBurgersForBurgerPlace(
+    burgerPlace: any,
+    brand: BurgerBrand
+  ): Burger[] {
+    const burgersRepository = this.entityManager.getRepository(Burger);
+    const allergensRepository = this.entityManager.getRepository(Allergen);
+    const ingredientsRepository = this.entityManager.getRepository(Ingredient);
+    const burgers: Burger[] = [];
+
+    for (const burgerRaw of burgerPlace.burgers) {
+      const ingredients = ingredientsRepository.find({
+        name: {
+          $in: burgerRaw.ingredients,
+        },
+      });
+
+      const allergens = allergensRepository.find({
+        name: {
+          $in: burgerRaw.ingredients,
+        },
+      });
+
+      const burger = burgersRepository.create({
+        id: uuid(),
+        type: burgerRaw.type,
+        name: burgerRaw.name,
+        description: burgerRaw.description,
+        brand,
+        allergens,
+        ingredients,
+      });
+
+      burgers.push(burger);
+    }
+    return burgers;
   }
 }

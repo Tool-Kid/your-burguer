@@ -14,7 +14,7 @@ export const BurgerPlaceSchema = new EntitySchema<BurgerPlace>({
     brand: {
       kind: 'm:1',
       entity: () => BurgerBrand,
-      inversedBy: (brand) => brand.burgerPlace,
+      inversedBy: (brand) => brand.place,
     },
     geo: { kind: '1:1', entity: () => GeoPoint },
     burgers: {
