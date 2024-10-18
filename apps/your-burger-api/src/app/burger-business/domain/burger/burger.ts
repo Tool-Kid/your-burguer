@@ -1,7 +1,7 @@
-import { Allergen } from './allergen/allergen';
-import { BurgerBrand } from './burger-brand/burger-brand';
-import { BurgerPlace } from './burger-place/burger-place';
-import { Ingredient } from './ingredient/ingredient';
+import { Allergen } from '../allergen/allergen';
+import { BurgerBrand } from '../burger-brand/burger-brand';
+import { BurgerPlace } from '../burger-place/burger-place';
+import { Ingredient } from '../ingredient/ingredient';
 
 interface BurgerProps {
   id: string;
