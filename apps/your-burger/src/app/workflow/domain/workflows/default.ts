@@ -69,6 +69,13 @@ export const DEFAULT_WORKFLOW: Workflow = {
       },
     },
     {
+      name: 'LOCATION',
+      path: '/choice-assistant/location',
+      config: {
+        components: [],
+      },
+    },
+    {
       name: 'PRIGING',
       path: '/choice-assistant/pricing',
       config: {

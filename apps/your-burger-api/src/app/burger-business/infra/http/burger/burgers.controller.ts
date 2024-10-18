@@ -14,7 +14,6 @@ export class BurgersController {
   @ApiOkResponsePaginated(BurgerItemDto)
   public async getBurgers(): Promise<PaginatedResponseDto<BurgerItemDto>> {
     const burgers = await this.burgersRepository.find();
-    console.log(JSON.stringify(burgers));
     return {
       data: burgers.map(
         (burger) =>

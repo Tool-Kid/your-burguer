@@ -3,6 +3,7 @@ import { Delivery } from './delivery/delivery';
 import { Garnish } from './garnish/garnish';
 import { Highlights } from './highlights/highlights';
 import { Intolerances } from './intolerances/intolerances';
+import { Location } from './location/location';
 import { Mode } from './mode/mode';
 import { Pricing } from './pricing/pricing';
 import { SiteType } from './site-type/site-type';
@@ -16,11 +17,5 @@ export interface CustomerPreferences {
   highlights: Highlights[];
   garnish: Garnish[];
   mode: Mode;
-  location?: {
-    street?: string;
-    latitude?: number;
-    longitude?: number;
-    altitude?: number;
-    radius?: number;
-  };
+  location?: Location;
 }

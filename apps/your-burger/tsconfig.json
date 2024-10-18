@@ -10,7 +10,8 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@choice-assistant/*": ["apps/your-burger/src/app/choice-assistant/*"],
-      "@workflow/*": ["apps/your-burger/src/app/workflow/*"]
+      "@workflow/*": ["apps/your-burger/src/app/workflow/*"],
+      "@core/*": ["apps/your-burger/src/app/core/*"]
     }
   },
   "files": [],

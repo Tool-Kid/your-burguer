@@ -71,6 +71,13 @@ export const appRoutes: Route[] = [
             './_pages/choice-assistant/steps/mode/mode-step.component'
           ).then((c) => c.ModeStepComponent),
       },
+      {
+        path: 'location',
+        loadComponent: () =>
+          import(
+            './_pages/choice-assistant/steps/location/location-step.component'
+          ).then((c) => c.LocationStepComponent),
+      },
     ],
   },
   {

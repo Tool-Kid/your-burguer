@@ -8,6 +8,7 @@ import { Pricing } from './pricing/pricing';
 import { SiteType } from './site-type/site-type';
 import { RxjsState } from '../../../core/state/infra/rxjs-state';
 import { CustomerPreferences } from './customer-preferences';
+import { Location } from './location/location';
 
 const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferences = {
   burgerType: BurgerType.CLASSIC,
@@ -18,6 +19,7 @@ const DEFAULT_CUSTOMER_PREFERENCES: CustomerPreferences = {
   highlights: [],
   garnish: [],
   mode: Mode.PREFERENCE,
+  location: {},
 };
 
 export class CustomerPreferencesState extends RxjsState<CustomerPreferences> {
@@ -78,5 +80,9 @@ export class CustomerPreferencesState extends RxjsState<CustomerPreferences> {
 
   setMode(mode: Mode) {
     this.setSimpleItem('mode', mode);
+  }
+
+  setLocation(location: Location) {
+    this.setSimpleItem('location', location);
   }
 }

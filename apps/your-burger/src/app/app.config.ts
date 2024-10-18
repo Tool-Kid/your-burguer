@@ -8,6 +8,7 @@ import { appRoutes } from './app.routes';
 import { WorkflowModule } from '@workflow/workflow.module';
 import { ChoiceAssistantModule } from '@choice-assistant/choice-assistant.module';
 import { BurgerProposalModule } from './burger-proposal/burger-proposal.module';
+import { GeolocationModule } from './core/geolocation/geolocation.module';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +17,8 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(
       WorkflowModule.forRoot(),
       ChoiceAssistantModule.forRoot(),
-      BurgerProposalModule.forRoot()
+      BurgerProposalModule.forRoot(),
+      GeolocationModule.forRoot()
     ),
   ],
 };
